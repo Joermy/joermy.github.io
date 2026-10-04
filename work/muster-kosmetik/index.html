@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Studio Leyla — Joermy</title>
+  <meta name="description" content="Helles Layout mit lebenden Farbverläufen, Glasflächen und einer Auswahlhilfe, die vollständig im Browser läuft.">
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/basis.css">
+  <link rel="stylesheet" href="../../assets/css/raster.css">
+  <link rel="stylesheet" href="../../assets/css/komponenten.css">
+  <link rel="stylesheet" href="../../assets/css/bewegung.css">
+  <link rel="stylesheet" href="../../assets/css/schau.css">
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+  <div class="flor" aria-hidden="true"></div>
+  <canvas class="hero__canvas" data-variante="feld" aria-hidden="true"></canvas>
+  <header class="kopfzeile">
+    <div class="breite kopfzeile__inhalt">
+      <a class="marke" href="../../index.html">Joermy</a>
+      <nav class="hauptnav" aria-label="Hauptnavigation">
+        <ul><li><a href="../../work/index.html" aria-current="page">Arbeiten</a></li><li><a href="../../about/index.html">Über mich</a></li><li><a href="../../contact/index.html">Kontakt</a></li></ul>
+      </nav>
+    </div>
+  </header>
+  <main id="inhalt">
+    <header class="projekt-kopf breite">
+      <p class="eyebrow einblenden">Websites — 2026</p>
+      <h1 class="einblenden" style="font-size:var(--fs-h2);margin-top:var(--sp-4)">Studio Leyla</h1>
+      <p class="hero__lead einblenden">Helles Layout mit lebenden Farbverläufen, Glasflächen und einer Auswahlhilfe, die vollständig im Browser läuft.</p>
+      <dl class="projekt-kopf__meta">
+        <div><dt>Rolle</dt><dd>Konzept, Gestaltung, Umsetzung</dd></div>
+        <div><dt>Jahr</dt><dd>2026</dd></div>
+        <div><dt>Technologie</dt><dd>HTML, CSS, JavaScript</dd></div>
+      </dl>
+      <div class="projekt-kopf__aktionen einblenden">
+        <a class="knopf" href="https://joermy.github.io/muster-kosmetik/" rel="noopener">Live ansehen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="knopf knopf--ghost" href="https://github.com/Joermy/muster-kosmetik" rel="noopener">Auf GitHub ansehen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </header>
+    <section class="sektion breite einblenden">
+      <a class="vorschau" href="https://joermy.github.io/muster-kosmetik/" rel="noopener" aria-label="Live ansehen">
+      <div class="rahmen">
+        <div class="rahmen__leiste" aria-hidden="true"><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span></div>
+        <picture>
+          <source type="image/webp" srcset="../../bilder/muster-kosmetik/hero-400.webp 400w, ../../bilder/muster-kosmetik/hero-800.webp 800w, ../../bilder/muster-kosmetik/hero-1600.webp 1600w" sizes="(min-width: 960px) 1280px, 90vw">
+          <img src="../../bilder/muster-kosmetik/hero-800.jpg" srcset="../../bilder/muster-kosmetik/hero-400.jpg 400w, ../../bilder/muster-kosmetik/hero-800.jpg 800w, ../../bilder/muster-kosmetik/hero-1600.jpg 1600w" sizes="(min-width: 960px) 1280px, 90vw" width="1600" height="1000" alt="Startseite der Musterwebsite für ein Kosmetikstudio, heller Farbverlauf in Rosa und Violett mit großer Überschrift" loading="eager" decoding="async">
+        </picture>
+      </div>
+        <span class="vorschau__hinweis" aria-hidden="true">Live ansehen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <p style="margin-top:var(--sp-5);font-size:var(--fs-meta);color:var(--muted)">Musterprojekt. Betrieb, Anschrift und Inhalte sind frei erfunden, die Umsetzung ist es nicht. Die Fotos stammen von Unsplash.</p>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Überblick</h3>
+        <p>Sieben Seiten für ein kleines Studio. Die Farbe liegt hinter dem Text: vier weichgezeichnete Verlaufsflächen treiben langsam hinter der Seite, der Text bleibt fast schwarz.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Die Aufgabe</h3>
+        <p>Kosmetik ist ein Feld mit strengen Werberegeln. Wirkversprechen, Vorher-Nachher-Bilder und erfundene Ergebnisse sind heikel — die Seite muss ohne sie auskommen und trotzdem verkaufen.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Der Ansatz</h3>
+        <p>Statt eines Buchungssystems eine Auswahlhilfe: drei Fragen filtern die Behandlungsliste. Nichts wird gesendet, nichts gespeichert, kein Auftragsverarbeiter nötig.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Das System</h3>
+        <p>Glasflächen über backdrop-filter, Aufdeckung über Unschärfe statt über Verschiebung, Überschriften Wort für Wort. Eine Maske öffnet sich beim Scrollen über clip-path, gesteuert durch eine einzige Zahl.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Ergebnis</h3>
+        <p>Erster Seitenaufruf 145 KB — die leichteste der drei. Kontraste auf dem farbigen Grund nachgemessen, nicht geschätzt: 5,9:1 im schlechtesten Fall.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Technik</h3>
+        <div class="chip-gruppe"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Python</span></div>
+      </div>
+    </section>
+    <section class="sektion--eng breite">
+      <div style="display:flex;flex-wrap:wrap;gap:var(--sp-3)">
+        <a class="knopf" href="https://joermy.github.io/muster-kosmetik/" rel="noopener">Seite öffnen</a>
+        <a class="knopf knopf--ghost" href="https://github.com/Joermy/muster-kosmetik" rel="noopener">Quelltext auf GitHub</a>
+        <a class="knopf knopf--ghost" href="../../work/index.html">← Zurück zu den Arbeiten</a>
+      </div>
+    </section>
+  </main>
+  <footer class="fusszeile">
+    <div class="breite fusszeile__inhalt">
+      <p>Joermy — © 2026</p>
+      <ul><li><a href="https://github.com/Joermy" rel="noopener">GitHub</a></li><li><a href="mailto:jeremy-geiseler@outlook.com">E-Mail</a></li><li><a href="../../impressum/index.html">Impressum</a></li><li><a href="../../datenschutz/index.html">Datenschutz</a></li></ul>
+    </div>
+  </footer>
+  <script src="../../assets/js/bewegung.js" defer></script>
+  <script src="../../assets/js/interaktion.js" defer></script>
+  <script src="../../assets/js/schau.js" defer></script>
+  <script src="../../assets/js/klang.js" defer></script>
+  <script type="module" src="../../assets/js/hintergrund.js"></script>
+</body>
+</html>

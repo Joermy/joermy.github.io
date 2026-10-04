@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#000000">
+  <title>Joermy — Creative Developer</title>
+  <meta name="description" content="Websites, Oberflächen und digitale Werkzeuge — gebaut mit Blick auf Technik und Gestaltung.">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/basis.css">
+  <link rel="stylesheet" href="assets/css/raster.css">
+  <link rel="stylesheet" href="assets/css/komponenten.css">
+  <link rel="stylesheet" href="assets/css/bewegung.css">
+  <link rel="stylesheet" href="assets/css/schau.css">
+  <noscript>
+    <style>
+      .vorhang { display: none !important; }
+    </style>
+  </noscript>
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+  <div class="vorhang" role="presentation">
+    <div class="vorhang__inhalt">
+      <svg class="vorhang__kristall" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <linearGradient id="vorhang-spektrum" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ff7a3d"/>
+            <stop offset="0.35" stop-color="#ff3d7f"/>
+            <stop offset="0.68" stop-color="#9b5cff"/>
+            <stop offset="1" stop-color="#38b6ff"/>
+          </linearGradient>
+        </defs>
+        <g class="vorhang__gitter">
+          <ellipse cx="100" cy="100" rx="84" ry="84" pathLength="100"/>
+          <ellipse cx="100" cy="100" rx="84" ry="16" pathLength="100" transform="rotate(0 100 100)"/>
+          <ellipse cx="100" cy="100" rx="84" ry="16" pathLength="100" transform="rotate(36 100 100)"/>
+          <ellipse cx="100" cy="100" rx="84" ry="16" pathLength="100" transform="rotate(72 100 100)"/>
+          <ellipse cx="100" cy="100" rx="84" ry="16" pathLength="100" transform="rotate(108 100 100)"/>
+          <ellipse cx="100" cy="100" rx="84" ry="16" pathLength="100" transform="rotate(144 100 100)"/>
+          <ellipse cx="100" cy="100" rx="84" ry="44" pathLength="100" transform="rotate(18 100 100)"/>
+          <ellipse cx="100" cy="100" rx="84" ry="44" pathLength="100" transform="rotate(90 100 100)"/>
+          <ellipse cx="100" cy="100" rx="84" ry="44" pathLength="100" transform="rotate(162 100 100)"/>
+          <ellipse cx="100" cy="100" rx="58" ry="58" pathLength="100"/>
+        </g>
+      </svg>
+      <p class="vorhang__marke" aria-hidden="true">
+        <span class="vorhang__marke-grund">Joermy</span>
+        <span class="vorhang__marke-fuellung">Joermy</span>
+      </p>
+      <p class="vorhang__zeile" aria-hidden="true">
+        <span class="vorhang__label">Portfolio</span>
+        <span class="vorhang__zahl">000</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="flor" aria-hidden="true"></div>
+
+  <header class="kopfzeile">
+    <div class="breite kopfzeile__inhalt">
+      <a class="marke" href="index.html">Joermy</a>
+      <nav class="hauptnav" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="work/index.html">Arbeiten</a></li>
+          <li><a href="about/index.html">Über mich</a></li>
+          <li><a href="contact/index.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhalt">
+    <section class="hero breite">
+      <div class="hero__buehne" aria-hidden="true"><span></span><span></span></div>
+      <canvas class="hero__canvas" data-variante="held" aria-hidden="true"></canvas>
+      <img class="hero__still" src="bilder/band-1000.webp" srcset="bilder/band-600.webp 600w, bilder/band-1000.webp 1000w" sizes="(max-width: 860px) 84vw, 54vw" width="1000" height="978" alt="" aria-hidden="true" decoding="async" fetchpriority="high">
+
+      <p class="plakette"><span class="plakette__punkt" aria-hidden="true"></span>Creative Developer · Peine</p>
+      <h1>
+        <span class="zeile"><span class="zeile__inner">Websites,</span></span>
+        <span class="zeile"><span class="zeile__inner">die etwas</span></span>
+        <span class="zeile"><span class="zeile__inner">auslösen.</span></span>
+      </h1>
+      <p class="hero__lead">Websites, Oberflächen und digitale Werkzeuge — gebaut mit Blick auf Technik und Gestaltung.</p>
+
+      <div class="hero__aktionen">
+        <a class="knopf" href="work/index.html">Arbeiten ansehen</a>
+        <a class="knopf knopf--ghost" href="about/index.html">Über mich</a>
+      </div>
+
+      <dl class="kennzahlen-leiste">
+        <div><dt>Standort</dt><dd>Peine</dd></div>
+        <div><dt>Projekte</dt><dd data-zaehlziel="10" data-zaehlquelle="projekte">10</dd></div>
+        <div><dt>Websites live</dt><dd>4</dd></div>
+        <div><dt>Frameworks</dt><dd>0</dd></div>
+      </dl>
+
+      <div class="hero__scroll" aria-hidden="true"><span class="hero__scroll-linie"></span>Scrollen</div>
+    </section>
+
+    <section class="statement" aria-label="Haltung">
+      <div class="statement__buehne breite">
+        <span class="statement__licht" aria-hidden="true"></span>
+        <p class="kopf-nummer" data-nummer="—">Haltung</p>
+        <h2 data-woerter data-hervor="Websites Werkzeuge, bedienen aussehen.">Ich baue Websites und Werkzeuge, die sich so gut bedienen lassen, wie sie aussehen.</h2>
+        <div class="statement__fuss" aria-hidden="true">
+          <span class="statement__leiste"><i></i></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="sektion breite">
+      <p class="kopf-nummer einblenden" data-nummer="01">Was ich mache</p>
+      <h2 class="sektion__titel einblenden" style="margin-bottom:var(--sp-8)">Technik, die man spürt.</h2>
+
+      <div class="bento">
+        <article class="kachel kachel--breit einblenden">
+          <span class="kachel__leuchten" style="background:#9b5cff" aria-hidden="true"></span>
+          <p class="kachel__zahl" aria-hidden="true">0</p>
+          <h3>Frameworks. Kein Baukasten, kein Build-Schritt.</h3>
+          <p>Jede Seite hier ist reines HTML, CSS und JavaScript — selbst umgesetzt, ohne Baukasten. Schriften, Bilder und Three.js liegen selbst gehostet im Repository — beim Laden geht keine Anfrage an fremde Server.</p>
+        </article>
+
+        <article class="kachel einblenden">
+          <span class="kachel__leuchten" style="background:#38b6ff" aria-hidden="true"></span>
+          <span class="kachel__symbol" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>
+          </span>
+          <h3>KI auf der eigenen Grafikkarte.</h3>
+          <p>Lokale Agenten und Werkzeuge. Keine Schlüssel, keine laufenden Kosten, keine Daten außer Haus.</p>
+        </article>
+
+        <article class="kachel einblenden">
+          <span class="kachel__leuchten" style="background:#ff3d7f" aria-hidden="true"></span>
+          <span class="kachel__symbol" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 22V12M21 7l-9 5-9-5"/></svg>
+          </span>
+          <h3>3D aus Blender, live im Browser.</h3>
+          <p>Das Band im Hintergrund ist in Blender modelliert und ändert beim Scrollen seine Form — in Echtzeit über Three.js.</p>
+        </article>
+
+        <article class="kachel einblenden">
+          <span class="kachel__leuchten" style="background:#ff7a3d" aria-hidden="true"></span>
+          <span class="kachel__symbol" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3-6 6-6 9 0s6 6 9 0"/></svg>
+          </span>
+          <h3>Bewegung mit Maß.</h3>
+          <p>Animation, die auf eine Handlung antwortet. Ein Effekt, richtig gemacht, statt zehn nebeneinander.</p>
+        </article>
+
+        <article class="kachel einblenden">
+          <span class="kachel__leuchten" style="background:#9b5cff" aria-hidden="true"></span>
+          <span class="kachel__pegel" aria-hidden="true">
+            <i style="--h:30"></i><i style="--h:62"></i><i style="--h:44"></i><i style="--h:90"></i><i style="--h:58"></i><i style="--h:100"></i><i style="--h:70"></i><i style="--h:40"></i><i style="--h:82"></i><i style="--h:50"></i><i style="--h:26"></i>
+          </span>
+          <h3>Klang aus Code.</h3>
+          <p>Jeder Ton dieser Seite entsteht zur Laufzeit — keine einzige Audiodatei. Standardmäßig aus.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="sektion breite">
+      <p class="kopf-nummer einblenden" data-nummer="02">Ausgewählte Arbeiten</p>
+      <div class="sektion__kopf">
+        <h2 class="sektion__titel einblenden">Gebaut, nicht nur entworfen.</h2>
+        <a class="knopf knopf--ghost" href="work/index.html">Alle Arbeiten</a>
+      </div>
+
+      <p class="lade-hinweis" id="lade-hinweis" hidden>
+        Das Raster lädt normalerweise aus <code>daten/projekte.js</code>. Starte <code>Start Website.bat</code>
+        oder <code>python scripts/dev-server.py</code> und öffne <code>http://localhost:8090</code> — bis dahin
+        hier die vollständige Liste:
+      </p>
+
+      <div class="work-grid" id="work-grid" data-basis="." data-limit="4"></div>
+
+      <noscript id="vollstaendige-liste"><ul>
+<li><a href="work/faig-ai-agent/index.html">FAIG — Freier KI-Agent als Desktop-App</a></li>
+<li><a href="work/muster-uhrmacher/index.html">Atelier Kessler — Musterwebsite für einen Uhrmacher</a></li>
+<li><a href="work/rift-rush/index.html">Rift Rush — Roblox-Spiel mit Pets, Rennen und Raids</a></li>
+<li><a href="work/bewerbungsagent/index.html">Bewerbungsagent — Stellen finden, Anschreiben schreiben</a></li>
+<li><a href="work/muster-kosmetik/index.html">Studio Leyla — Musterwebsite für ein Kosmetikstudio</a></li>
+<li><a href="work/muster-roesterei/index.html">Röstwerk Nord — Musterwebsite für eine Kaffeerösterei</a></li>
+<li><a href="work/muster-tischlerei/index.html">Tischlerei Hallmann — Musterwebsite für einen Handwerksbetrieb</a></li>
+<li><a href="work/comfyui-autoprompter/index.html">AutoPrompter — ComfyUI-Node mit lokalem Sprachmodell</a></li>
+<li><a href="work/site-audit/index.html">site-audit — Prüfwerkzeug für Websites</a></li>
+<li><a href="work/portfolio-website/index.html">Dieses Portfolio — Statische Website, selbst umgesetzt</a></li>
+</ul></noscript>
+    </section>
+
+    <section class="abschluss breite">
+      <h2 class="einblenden">Bereit für den nächsten Schritt.</h2>
+      <p class="einblenden">Ich suche eine Ausbildung oder Stelle, in der ich weiter an Websites, Oberflächen und lokalen KI-Werkzeugen arbeiten kann.</p>
+      <div class="hero__aktionen einblenden">
+        <a class="knopf" href="mailto:jeremy-geiseler@outlook.com">E-Mail schreiben</a>
+        <a class="knopf knopf--ghost" href="https://github.com/Joermy" rel="noopener">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fusszeile">
+    <div class="breite fusszeile__inhalt">
+      <p>Joermy — © 2026</p>
+      <ul>
+        <li><a href="https://github.com/Joermy" rel="noopener">GitHub</a></li>
+        <li><a href="mailto:jeremy-geiseler@outlook.com">E-Mail</a></li>
+        <li><a href="impressum/index.html">Impressum</a></li>
+        <li><a href="datenschutz/index.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="daten/projekte.js" defer></script>
+  <script src="assets/js/raster.js" defer></script>
+  <script src="assets/js/filter.js" defer></script>
+  <script src="assets/js/bewegung.js" defer></script>
+  <script src="assets/js/interaktion.js" defer></script>
+  <script src="assets/js/schau.js" defer></script>
+  <script src="assets/js/klang.js" defer></script>
+  <script type="module" src="assets/js/hintergrund.js"></script>
+</body>
+</html>

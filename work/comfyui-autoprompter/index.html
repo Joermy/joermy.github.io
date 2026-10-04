@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>AutoPrompter — Joermy</title>
+  <meta name="description" content="Ein eigener ComfyUI-Node, der Bild- und Video-Prompts mit einem lokal geladenen GGUF-Modell schreibt — ohne API und ohne Netz.">
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/basis.css">
+  <link rel="stylesheet" href="../../assets/css/raster.css">
+  <link rel="stylesheet" href="../../assets/css/komponenten.css">
+  <link rel="stylesheet" href="../../assets/css/bewegung.css">
+  <link rel="stylesheet" href="../../assets/css/schau.css">
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+  <div class="flor" aria-hidden="true"></div>
+  <canvas class="hero__canvas" data-variante="feld" aria-hidden="true"></canvas>
+  <header class="kopfzeile">
+    <div class="breite kopfzeile__inhalt">
+      <a class="marke" href="../../index.html">Joermy</a>
+      <nav class="hauptnav" aria-label="Hauptnavigation">
+        <ul><li><a href="../../work/index.html" aria-current="page">Arbeiten</a></li><li><a href="../../about/index.html">Über mich</a></li><li><a href="../../contact/index.html">Kontakt</a></li></ul>
+      </nav>
+    </div>
+  </header>
+  <main id="inhalt">
+    <header class="projekt-kopf breite">
+      <p class="eyebrow einblenden">KI — 2026</p>
+      <h1 class="einblenden" style="font-size:var(--fs-h2);margin-top:var(--sp-4)">AutoPrompter</h1>
+      <p class="hero__lead einblenden">Ein eigener ComfyUI-Node, der Bild- und Video-Prompts mit einem lokal geladenen GGUF-Modell schreibt — ohne API und ohne Netz.</p>
+      <dl class="projekt-kopf__meta">
+        <div><dt>Rolle</dt><dd>Konzept und Umsetzung</dd></div>
+        <div><dt>Jahr</dt><dd>2026</dd></div>
+        <div><dt>Technologie</dt><dd>Python, ComfyUI, llama.cpp</dd></div>
+      </dl>
+      <p style="margin-top:var(--sp-6)"><a class="github-cta" href="https://github.com/Joermy" rel="noopener">Auf GitHub ansehen ↗</a></p>
+    </header>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Überblick</h3>
+        <p>Der Node lädt ein GGUF-Sprachmodell über llama.cpp direkt in ComfyUI und erzeugt daraus vollständige Prompts. Er bringt eine eigene Oberfläche im ComfyUI-Frontend mit.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Die Aufgabe</h3>
+        <p>Gute Prompts von Hand zu schreiben kostet bei Stapelläufen die meiste Zeit. Fertige Dienste dafür brauchen einen Schlüssel, eine Verbindung und geben Daten aus der Hand.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Der Ansatz</h3>
+        <p>Das Sprachmodell dorthin holen, wo der Bildgenerator ohnehin läuft. Ein Node, ein Modellordner, kein zweiter Dienst.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Das System</h3>
+        <p>738 Zeilen Python. Das geladene Modell bleibt zwischen Warteschlangen-Läufen im Speicher, sonst lädt Auto Queue es vor jedem Bild neu von der Platte. Ein eigener Modellordner (models/llm_gguf) wird beim Start registriert, eine neue Datei dort genügt. Ein Filter entfernt die Gedankengänge, die manche Feinabstimmungen trotz Anweisung ausgeben.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Das Ergebnis</h3>
+        <p style="margin-bottom:var(--sp-4)">Läuft täglich im eigenen Betrieb und liefert die Prompts für die H3-Pipeline.</p>
+        <div class="code-karte"><pre># Modell bleibt zwischen Laeufen im Speicher
+_MODEL_CACHE = {}
+
+def _get_llm(model_path, n_gpu_layers=99, n_ctx=4096):
+    key = (model_path, n_gpu_layers, n_ctx)
+    if key not in _MODEL_CACHE:
+        from llama_cpp import Llama
+        _MODEL_CACHE.clear()
+        gc.collect()
+        _MODEL_CACHE[key] = Llama(
+            model_path=model_path,
+            n_gpu_layers=n_gpu_layers,
+            n_ctx=n_ctx,
+            verbose=False,
+        )
+    return _MODEL_CACHE[key]</pre></div>
+      </div>
+    </section>
+
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Technik</h3>
+        <div class="chip-gruppe"><span class="chip">Python</span><span class="chip">ComfyUI</span><span class="chip">llama.cpp</span><span class="chip">GGUF</span><span class="chip">JavaScript</span></div>
+      </div>
+    </section>
+    <section class="sektion--eng breite">
+      <a class="knopf" href="../../work/index.html">← Zurück zu den Arbeiten</a>
+    </section>
+  </main>
+  <footer class="fusszeile">
+    <div class="breite fusszeile__inhalt">
+      <p>Joermy — © 2026</p>
+      <ul><li><a href="https://github.com/Joermy" rel="noopener">GitHub</a></li><li><a href="mailto:jeremy-geiseler@outlook.com">E-Mail</a></li><li><a href="../../impressum/index.html">Impressum</a></li><li><a href="../../datenschutz/index.html">Datenschutz</a></li></ul>
+    </div>
+  </footer>
+  <script src="../../assets/js/bewegung.js" defer></script>
+  <script src="../../assets/js/interaktion.js" defer></script>
+  <script src="../../assets/js/schau.js" defer></script>
+  <script src="../../assets/js/klang.js" defer></script>
+  <script type="module" src="../../assets/js/hintergrund.js"></script>
+</body>
+</html>

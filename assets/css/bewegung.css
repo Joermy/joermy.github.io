@@ -1,0 +1,147 @@
+@media (prefers-reduced-motion: no-preference) {
+
+  .kopfzeile {
+    transition: background-color 300ms ease, border-color 300ms ease;
+  }
+
+  .js-bewegung .einblenden {
+    opacity: 0;
+    transform: translateY(40px) scale(0.985);
+    transition: opacity 900ms cubic-bezier(0.22, 1, 0.36, 1), transform 1100ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .js-bewegung .einblenden.ist-sichtbar {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .js-bewegung .zeile__inner {
+    display: inline-block;
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .js-bewegung .zeile__inner.ist-aufgedeckt {
+    clip-path: inset(0 0 0% 0);
+  }
+
+  .projekt-karte__bild-wrap img {
+    transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .projekt-karte:hover .projekt-karte__bild-wrap img,
+  .projekt-karte:focus-visible .projekt-karte__bild-wrap img {
+    transform: scale(1.035);
+  }
+
+  .projekt-karte__pfeil svg {
+    transition: transform 250ms ease;
+  }
+
+  .projekt-karte:hover .projekt-karte__pfeil svg,
+  .projekt-karte:focus-visible .projekt-karte__pfeil svg {
+    transform: translateX(4px);
+  }
+
+  .papier {
+    transition: transform 300ms ease;
+  }
+
+  .papier-buehne:hover .papier {
+    transform: rotate(0deg) translateY(-6px);
+  }
+
+  .projekt-karte {
+    transition: opacity 220ms ease;
+  }
+
+  .projekt-karte--gefiltert {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root) {
+    animation: seite-weg 260ms ease both;
+  }
+
+  ::view-transition-new(root) {
+    animation: seite-rein 340ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  @keyframes seite-weg {
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes seite-rein {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
+
+  .hero__buehne span,
+  .hero__canvas {
+    transition: transform 300ms ease-out, opacity 500ms ease;
+  }
+
+  .hero__buehne {
+    transform: translateY(calc(var(--scroll, 0) * 70px));
+    opacity: calc(1 - var(--scroll, 0) * 0.9);
+  }
+
+  .hero__canvas.ist-bereit {
+    opacity: calc(1 - var(--scroll, 0) * 0.55);
+  }
+
+  .hero h1,
+  .hero__lead,
+  .hero__scroll,
+  .hero__aktionen,
+  .hero .plakette,
+  .hero > .eyebrow {
+    transform: translateY(calc(var(--scroll, 0) * -30px));
+    opacity: calc(1 - var(--scroll, 0) * 1.6);
+  }
+
+  .projekt-karte__medien {
+    transition: border-color 300ms ease, box-shadow 300ms ease;
+  }
+
+  .projekt-karte__medien::after {
+    transition: opacity 300ms ease;
+  }
+
+  .rahmen {
+    transition: border-color 300ms ease, box-shadow 300ms ease;
+  }
+
+  .chip {
+    transition: border-color 200ms ease, background-color 200ms ease;
+  }
+
+  .knopf,
+  .knopf--ghost {
+    transition: background 250ms ease, color 250ms ease, border-color 250ms ease, transform 200ms ease;
+  }
+
+  .filterleiste button {
+    transition: border-color 200ms ease, color 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-bewegung .einblenden {
+    opacity: 1;
+    transform: none;
+  }
+
+  .js-bewegung .zeile__inner {
+    clip-path: none;
+  }
+}

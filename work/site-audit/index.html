@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>site-audit — Joermy</title>
+  <meta name="description" content="Kommandozeilenwerkzeug in Python, das eine Website auf Technik- und Pflichtmängel prüft und Berichte als Markdown, HTML oder JSON schreibt.">
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/basis.css">
+  <link rel="stylesheet" href="../../assets/css/raster.css">
+  <link rel="stylesheet" href="../../assets/css/komponenten.css">
+  <link rel="stylesheet" href="../../assets/css/bewegung.css">
+  <link rel="stylesheet" href="../../assets/css/schau.css">
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+  <div class="flor" aria-hidden="true"></div>
+  <canvas class="hero__canvas" data-variante="feld" aria-hidden="true"></canvas>
+
+  <header class="kopfzeile">
+    <div class="breite kopfzeile__inhalt">
+      <a class="marke" href="../../index.html">Joermy</a>
+      <nav class="hauptnav" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="../../work/index.html" aria-current="page">Arbeiten</a></li>
+          <li><a href="../../about/index.html">Über mich</a></li>
+          <li><a href="../../contact/index.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhalt">
+    <header class="projekt-kopf breite">
+      <p class="eyebrow einblenden">Software — 2026</p>
+      <h1 class="einblenden" style="font-size:var(--fs-h2);margin-top:var(--sp-4)">site-audit</h1>
+      <p class="hero__lead einblenden">Ein Kommandozeilenwerkzeug, das die Startseite einer Website auf Technik- und Pflichtmängel prüft und einen Bericht schreibt. Jeder Befund hat Messwert und Fundstelle.</p>
+      <dl class="projekt-kopf__meta">
+        <div><dt>Rolle</dt><dd>Konzept und Umsetzung</dd></div>
+        <div><dt>Jahr</dt><dd>2026</dd></div>
+        <div><dt>Technologie</dt><dd>Python, httpx, BeautifulSoup, pytest</dd></div>
+      </dl>
+      <div class="projekt-kopf__aktionen einblenden">
+        <a class="knopf" href="https://github.com/Joermy/site-audit" rel="noopener">Auf GitHub ansehen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </header>
+    <section class="sektion breite einblenden">
+      <a class="vorschau" href="https://github.com/Joermy/site-audit" rel="noopener" aria-label="Auf GitHub ansehen">
+      <div class="rahmen">
+        <div class="rahmen__leiste" aria-hidden="true"><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span></div>
+        <picture>
+          <source type="image/webp" srcset="../../bilder/site-audit/hero-400.webp 400w, ../../bilder/site-audit/hero-800.webp 800w, ../../bilder/site-audit/hero-1600.webp 1600w" sizes="(min-width: 960px) 1280px, 90vw">
+          <img src="../../bilder/site-audit/hero-800.jpg" srcset="../../bilder/site-audit/hero-400.jpg 400w, ../../bilder/site-audit/hero-800.jpg 800w, ../../bilder/site-audit/hero-1600.jpg 1600w" sizes="(min-width: 960px) 1280px, 90vw" width="1600" height="1000" alt="Prüfbericht von site-audit im dunklen Modus: Zusammenfassung mit Zahlen je Schweregrad, darunter Befunde mit Messwert und Fundstelle" loading="eager" fetchpriority="high" decoding="async">
+        </picture>
+      </div>
+        <span class="vorschau__hinweis" aria-hidden="true">Auf GitHub ansehen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <p style="margin-top:var(--sp-5);font-size:var(--fs-meta);color:var(--muted)">Bericht über eine Testseite mit absichtlich eingebauten Mängeln.</p>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Überblick</h3>
+        <p>site-audit ruft eine Seite ab und führt 25 Prüfungen aus: Zertifikat und Weiterleitung, Impressum und Datenschutzerklärung, Verbindungen zu fremden Domains, Alternativtexte, Überschriften, Kontrast, Gewicht und Sicherheits-Header. Der Bericht kommt als Konsolenansicht, Markdown, HTML oder JSON.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Die Aufgabe</h3>
+        <p>Eine Website im Browser Punkt für Punkt auf Mängel zu prüfen, dauert pro Betrieb etwa eine halbe Stunde. Was dabei übersehen wird, bemerkt später der Kunde oder ein Dritter.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Der Ansatz</h3>
+        <p>Jeder Befund trägt einen Messwert und eine Fundstelle, und was nur geschätzt ist, steht als Schätzung im Bericht. Das Werkzeug verhält sich wie ein höflicher Besucher: Es liest die robots.txt, fragt höchstens einmal pro Sekunde und lädt fremde Ressourcen nicht nach.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Das System</h3>
+        <p>Python mit httpx, BeautifulSoup und lxml. Jede Prüfung ist eine Funktion mit Dekorator und meldet sich selbst an. Wirft sie einen Fehler, wird daraus ein Befund „nicht bestimmbar“ und der Lauf geht weiter. Ein kleiner CSS-Leser rechnet Kontraste, die Netzschicht ist austauschbar, damit die Tests ohne Netz laufen.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Das Ergebnis</h3>
+        <p>96 automatische Tests ohne Netzwerkzugriff. Zwei Testseiten halten das Verhalten fest: Die gute löst keinen Befund aus, die kaputte genau die 16 erwarteten. Der erste Lauf gegen das eigene Portfolio zeigte zwei Fehlalarme bei Kontrast und Überlauf; beide Prüfungen sind danach enger gefasst worden.</p>
+      </div>
+    </section>
+
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Technik</h3>
+        <div class="chip-gruppe">
+          <span class="chip">Python</span>
+          <span class="chip">httpx</span>
+          <span class="chip">BeautifulSoup</span>
+          <span class="chip">pytest</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="sektion--eng breite">
+      <a class="knopf" href="../../work/index.html">← Zurück zu den Arbeiten</a>
+    </section>
+  </main>
+
+  <footer class="fusszeile">
+    <div class="breite fusszeile__inhalt">
+      <p>Joermy — © 2026</p>
+      <ul>
+        <li><a href="https://github.com/Joermy" rel="noopener">GitHub</a></li>
+
+        <li><a href="mailto:jeremy-geiseler@outlook.com">E-Mail</a></li>
+        <li><a href="../../impressum/index.html">Impressum</a></li>
+        <li><a href="../../datenschutz/index.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/bewegung.js" defer></script>
+  <script src="../../assets/js/interaktion.js" defer></script>
+  <script src="../../assets/js/schau.js" defer></script>
+  <script src="../../assets/js/klang.js" defer></script>
+  <script type="module" src="../../assets/js/hintergrund.js"></script>
+</body>
+</html>

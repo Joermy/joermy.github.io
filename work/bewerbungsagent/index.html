@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Bewerbungsagent — Joermy</title>
+  <meta name="description" content="Ein lokaler Agent, der Stellen findet und Anschreiben schreibt, aber erst nach ausdrücklicher Freigabe sendet.">
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/basis.css">
+  <link rel="stylesheet" href="../../assets/css/raster.css">
+  <link rel="stylesheet" href="../../assets/css/komponenten.css">
+  <link rel="stylesheet" href="../../assets/css/bewegung.css">
+  <link rel="stylesheet" href="../../assets/css/schau.css">
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+  <div class="flor" aria-hidden="true"></div>
+  <canvas class="hero__canvas" data-variante="feld" aria-hidden="true"></canvas>
+
+  <header class="kopfzeile">
+    <div class="breite kopfzeile__inhalt">
+      <a class="marke" href="../../index.html">Joermy</a>
+      <nav class="hauptnav" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="../../work/index.html" aria-current="page">Arbeiten</a></li>
+          <li><a href="../../about/index.html">Über mich</a></li>
+          <li><a href="../../contact/index.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhalt">
+    <header class="projekt-kopf breite">
+      <p class="eyebrow einblenden">KI — 2026</p>
+      <h1 class="einblenden" style="font-size:var(--fs-h2);margin-top:var(--sp-4)">Bewerbungsagent</h1>
+      <p class="hero__lead einblenden">Ein lokaler Agent, der Ausbildungs- und Stellenangebote der Arbeitsagentur durchsucht, passende Anschreiben als PDF erzeugt und nichts verschickt, bevor ein Mensch wörtlich SENDEN eintippt.</p>
+      <dl class="projekt-kopf__meta">
+        <div><dt>Rolle</dt><dd>Konzept und Umsetzung</dd></div>
+        <div><dt>Jahr</dt><dd>2026</dd></div>
+        <div><dt>Technologie</dt><dd>Python, MCP, Claude, LM Studio, fpdf2, SMTP</dd></div>
+      </dl>
+    </header>
+
+    <section class="sektion breite einblenden">
+      <div class="rahmen">
+        <div class="rahmen__leiste" aria-hidden="true"><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span></div>
+        <picture>
+          <source type="image/webp" srcset="../../bilder/bewerbungsagent/hero-400.webp 400w, ../../bilder/bewerbungsagent/hero-800.webp 800w, ../../bilder/bewerbungsagent/hero-1600.webp 1600w" sizes="(min-width: 960px) 1280px, 90vw">
+          <img src="../../bilder/bewerbungsagent/hero-800.jpg" srcset="../../bilder/bewerbungsagent/hero-400.jpg 400w, ../../bilder/bewerbungsagent/hero-800.jpg 800w, ../../bilder/bewerbungsagent/hero-1600.jpg 1600w" sizes="(min-width: 960px) 1280px, 90vw" width="1600" height="1000" alt="Oberfläche des Bewerbungsagenten im dunklen Modus: Liste von sieben Ausbildungsstellen mit Passungswerten, Status Entwurf oder gesendet, unten die Leiste zum Freigeben und Senden" loading="eager" decoding="async">
+        </picture>
+      </div>
+      <p style="margin-top:var(--sp-6)"><a class="github-cta" href="https://github.com/Joermy/bewerbungsagent" rel="noopener">Auf GitHub ansehen ↗</a></p>
+    </section>
+
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Überblick</h3>
+        <p>Der Bewerbungsagent liest die öffentliche Jobsuche der Bundesagentur für Arbeit, filtert nach Profil, Umkreis und gefordertem Schulabschluss, bewertet die Passung und schreibt je Stelle ein einseitiges Anschreiben. Eine lokale Oberfläche zeigt alle Entwürfe mit PDF-Vorschau; von dort gehen die Bewerbungen per E-Mail raus, dazu ein Bewerbungsnachweis als PDF.</p>
+      </div>
+    </section>
+
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Die Aufgabe</h3>
+        <p>Viele Bewerbungen pro Woche kosten Stunden: Anzeigen lesen, Adressen suchen, Anschreiben anpassen, alles nachweisen. Gleichzeitig darf ein Automat nie etwas an Firmen schicken, das niemand gelesen hat — und eine Adresse im Anzeigentext heißt noch lange nicht, dass dort Bewerbungen erwünscht sind.</p>
+      </div>
+    </section>
+
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Der Ansatz</h3>
+        <p>Der Agent übernimmt die Fleißarbeit, der Mensch die Entscheidung. Er darf suchen, lesen und schreiben, aber nicht senden. Senden gibt es nur in der Oberfläche und nur nach getipptem Bestätigungswort — auch über den MCP-Server, an den sich Claude oder andere Agenten anbinden, lässt sich keine Mail auslösen.</p>
+      </div>
+    </section>
+
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Das System</h3>
+        <p>Python mit Standardbibliothek für Oberfläche und Server, fpdf2 für die PDFs nach DIN 5008, SMTP für den Versand. Die Texte schreibt wahlweise ein lokales Modell über LM Studio oder Claude über MCP. Ein eigener Prüfschritt erkennt aus dem Anzeigentext, ob eine Adresse nur für Rückfragen dasteht oder ein Bewerbungsportal verlangt wird. Jede Stelle landet als Notiz im Obsidian-Wissensspeicher.</p>
+      </div>
+    </section>
+
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Das Ergebnis</h3>
+        <p>61 automatische Tests, darunter ein Versand an einen lokalen Test-Mailserver. Beim Lesen von 27 echten Anzeigen wollten 7 keine Mail-Bewerbung, obwohl eine Adresse im Text stand — genau diese Fälle fängt der Agent jetzt ab. Die Bilder zeigen eine Vorführung mit erfundenen Daten.</p>
+      </div>
+    </section>
+
+    <section class="sektion breite einblenden">
+      <div class="rahmen" style="max-width:720px;margin-inline:auto">
+        <div class="rahmen__leiste" aria-hidden="true"><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span></div>
+        <picture>
+          <source type="image/webp" srcset="../../bilder/bewerbungsagent/anschreiben-400.webp 400w, ../../bilder/bewerbungsagent/anschreiben-800.webp 800w, ../../bilder/bewerbungsagent/anschreiben-1200.webp 1200w" sizes="(min-width: 960px) 720px, 90vw">
+          <img src="../../bilder/bewerbungsagent/anschreiben-800.jpg" srcset="../../bilder/bewerbungsagent/anschreiben-400.jpg 400w, ../../bilder/bewerbungsagent/anschreiben-800.jpg 800w, ../../bilder/bewerbungsagent/anschreiben-1200.jpg 1200w" sizes="(min-width: 960px) 720px, 90vw" width="1200" height="1696" alt="Vom Agenten erzeugtes Anschreiben als PDF für eine erfundene Druckerei: Briefkopf mit Name und blauem Akzentstrich, Anschrift, Betreff, fünf Absätze, Grußformel" loading="lazy" decoding="async">
+        </picture>
+      </div>
+    </section>
+
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Technik</h3>
+        <div class="chip-gruppe">
+          <span class="chip">Python</span>
+          <span class="chip">MCP</span>
+          <span class="chip">Claude</span>
+          <span class="chip">LM Studio</span>
+          <span class="chip">fpdf2</span>
+          <span class="chip">SMTP</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="sektion--eng breite">
+      <a class="knopf" href="../../work/index.html">← Zurück zu den Arbeiten</a>
+    </section>
+  </main>
+
+  <footer class="fusszeile">
+    <div class="breite fusszeile__inhalt">
+      <p>Joermy — © 2026</p>
+      <ul>
+        <li><a href="https://github.com/Joermy" rel="noopener">GitHub</a></li>
+
+        <li><a href="mailto:jeremy-geiseler@outlook.com">E-Mail</a></li>
+        <li><a href="../../impressum/index.html">Impressum</a></li>
+        <li><a href="../../datenschutz/index.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/bewegung.js" defer></script>
+  <script src="../../assets/js/interaktion.js" defer></script>
+  <script src="../../assets/js/schau.js" defer></script>
+  <script src="../../assets/js/klang.js" defer></script>
+  <script type="module" src="../../assets/js/hintergrund.js"></script>
+</body>
+</html>

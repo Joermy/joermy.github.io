@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Über mich — Joermy</title>
+  <meta name="description" content="Web Development, KI-Systeme, Creative Development und visuelle Gestaltung.">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/basis.css">
+  <link rel="stylesheet" href="../assets/css/raster.css">
+  <link rel="stylesheet" href="../assets/css/komponenten.css">
+  <link rel="stylesheet" href="../assets/css/bewegung.css">
+  <link rel="stylesheet" href="../assets/css/schau.css">
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+  <div class="flor" aria-hidden="true"></div>
+  <canvas class="hero__canvas" data-variante="feld" aria-hidden="true"></canvas>
+  <header class="kopfzeile">
+    <div class="breite kopfzeile__inhalt">
+      <a class="marke" href="../index.html">Joermy</a>
+      <nav class="hauptnav" aria-label="Hauptnavigation">
+        <ul><li><a href="../work/index.html">Arbeiten</a></li><li><a href="../about/index.html" aria-current="page">Über mich</a></li><li><a href="../contact/index.html">Kontakt</a></li></ul>
+      </nav>
+    </div>
+  </header>
+  <main id="inhalt">
+    <header class="projekt-kopf breite glueh-feld">
+      <h1 class="einblenden" style="max-width:16ch">Ich baue Dinge, die auf dem eigenen Rechner laufen.</h1>
+      <p class="hero__lead einblenden">Websites ohne Baukasten, KI-Werkzeuge ohne fremde Cloud. Was ich baue, läuft lokal: der KI-Agent FAIG als eigenständige Desktop-App, mit dem Sprachmodell auf der eigenen Grafikkarte, ein eigener ComfyUI-Node mit lokalem Sprachmodell, diese Website ohne Framework und ohne Build-Schritt.</p>
+      <p class="einblenden" style="max-width:60ch;margin-top:var(--sp-5)">Mich interessiert die Stelle, an der Gestaltung und Technik sich treffen — also nicht nur, wie etwas aussieht, sondern warum es sich richtig anfühlt. Deshalb setze ich Projekte lieber selbst um, als fertige Baukästen zu stapeln, deren Verhalten ich nicht kenne.</p>
+      <p class="einblenden" style="max-width:60ch;margin-top:var(--sp-4)">Einen Abschluss habe ich nicht. Was hier steht, habe ich mir selbst beigebracht — an einem Rechner, mit Dokumentation, mit Fehlern und mit sehr vielen Versuchen. Ich suche eine Ausbildung, in der ich das weiter lernen kann, und arbeite parallel darauf hin, irgendwann auf eigenen Füßen zu stehen. Beides zusammen wäre mir am liebsten.</p>
+    </header>
+
+    <section class="sektion breite">
+      <h2 class="einblenden" style="font-size:var(--fs-h3);margin-bottom:var(--sp-7)">Was ich mache</h2>
+      <div class="einblenden" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--sp-7)">
+        <div>
+          <h3 style="font-size:1.125rem">Websites</h3>
+          <p style="color:var(--muted);margin-top:var(--sp-2)">Websites ohne Baukasten und ohne unnötige Abhängigkeiten umgesetzt. Schnell, wartbar und ohne fremde Skripte von außen.</p>
+        </div>
+        <div>
+          <h3 style="font-size:1.125rem">KI-Werkzeuge</h3>
+          <p style="color:var(--muted);margin-top:var(--sp-2)">Lokale KI-Agenten und Werkzeuge: Modelle laufen auf der eigenen Grafikkarte, nicht in einer fremden Cloud. Keine Schlüssel, keine laufenden Kosten, keine Daten außer Haus.</p>
+        </div>
+        <div>
+          <h3 style="font-size:1.125rem">Oberflächen und Bewegung</h3>
+          <p style="color:var(--muted);margin-top:var(--sp-2)">Oberflächen und Bewegung, die sich hochwertig anfühlen: CSS-3D, WebGL mit Three.js, Animation mit Maß statt Effekt um des Effekts willen.</p>
+        </div>
+        <div>
+          <h3 style="font-size:1.125rem">Gestaltung</h3>
+          <p style="color:var(--muted);margin-top:var(--sp-2)">Print und Marke: Flyer, Visitenkarten, durchgehendes Erscheinungsbild.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sektion--eng breite">
+      <h2 class="einblenden" style="font-size:var(--fs-h3);margin-bottom:var(--sp-5)">Werkzeuge</h2>
+      <div class="chip-gruppe einblenden">
+        <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+        <span class="chip">Three.js</span><span class="chip">Python</span><span class="chip">Affinity Designer</span>
+        <span class="chip">ComfyUI</span><span class="chip">Electron</span><span class="chip">Node.js</span><span class="chip">llama.cpp</span><span class="chip">ffmpeg</span><span class="chip">Git</span>
+        <span class="chip">Blender</span><span class="chip">Unreal Engine</span><span class="chip">Claude</span><span class="chip">FAIG — eigener KI-Agent</span>
+      </div>
+    </section>
+
+    <section class="sektion--eng breite">
+      <h2 class="einblenden" style="font-size:var(--fs-h3);margin-bottom:var(--sp-5)">Quelltext</h2>
+      <p class="einblenden">Diese Website ist selbst das erste Beispiel: statisches HTML, CSS und JavaScript, ohne Framework und ohne Build-Schritt. Die 3D-Szene im Hintergrund ist eine eigene Umsetzung mit einem Modell aus Blender, Three.js liegt selbst gehostet im Repository statt an einem CDN.</p>
+      <p class="einblenden"><a href="https://github.com/Joermy" rel="noopener">github.com/Joermy</a></p>
+    </section>
+  </main>
+  <footer class="fusszeile">
+    <div class="breite fusszeile__inhalt">
+      <p>Joermy — © 2026</p>
+      <ul><li><a href="https://github.com/Joermy" rel="noopener">GitHub</a></li><li><a href="mailto:jeremy-geiseler@outlook.com">E-Mail</a></li><li><a href="../impressum/index.html">Impressum</a></li><li><a href="../datenschutz/index.html">Datenschutz</a></li></ul>
+    </div>
+  </footer>
+  <script src="../assets/js/bewegung.js" defer></script>
+  <script src="../assets/js/interaktion.js" defer></script>
+  <script src="../assets/js/schau.js" defer></script>
+  <script src="../assets/js/klang.js" defer></script>
+  <script type="module" src="../assets/js/hintergrund.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Rift Rush — Joermy</title>
+  <meta name="description" content="Veröffentlichtes Roblox-Spiel mit Pets, Rennen und Raids, in Luau programmiert, mit Welt und Figuren aus Blender.">
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/basis.css">
+  <link rel="stylesheet" href="../../assets/css/raster.css">
+  <link rel="stylesheet" href="../../assets/css/komponenten.css">
+  <link rel="stylesheet" href="../../assets/css/bewegung.css">
+  <link rel="stylesheet" href="../../assets/css/schau.css">
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+  <div class="flor" aria-hidden="true"></div>
+  <canvas class="hero__canvas" data-variante="feld" aria-hidden="true"></canvas>
+
+  <header class="kopfzeile">
+    <div class="breite kopfzeile__inhalt">
+      <a class="marke" href="../../index.html">Joermy</a>
+      <nav class="hauptnav" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="../../work/index.html" aria-current="page">Arbeiten</a></li>
+          <li><a href="../../about/index.html">Über mich</a></li>
+          <li><a href="../../contact/index.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhalt">
+    <header class="projekt-kopf breite">
+      <p class="eyebrow einblenden">Spiele — 2026</p>
+      <h1 class="einblenden" style="font-size:var(--fs-h2);margin-top:var(--sp-4)">Rift Rush</h1>
+      <p class="hero__lead einblenden">Ein veröffentlichtes Roblox-Spiel: im Takt trainieren, Pets aus Eiern schlüpfen lassen, eine 60-Kilometer-Strecke fahren. Server-Logik, Speicherstand, Welt und Figuren sind selbst umgesetzt.</p>
+      <dl class="projekt-kopf__meta">
+        <div><dt>Rolle</dt><dd>Konzept, Programmierung, 3D-Modelle, Umsetzung</dd></div>
+        <div><dt>Jahr</dt><dd>2026</dd></div>
+        <div><dt>Technologie</dt><dd>Luau, Roblox Studio, Rojo, Blender, Python</dd></div>
+      </dl>
+      <div class="projekt-kopf__aktionen einblenden">
+        <a class="knopf" href="https://www.roblox.com/games/80050994256081" rel="noopener">Auf Roblox ansehen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </header>
+    <section class="sektion breite einblenden">
+      <a class="vorschau" href="https://www.roblox.com/games/80050994256081" rel="noopener" aria-label="Auf Roblox ansehen">
+      <div class="rahmen">
+        <div class="rahmen__leiste" aria-hidden="true"><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span></div>
+        <picture>
+          <source type="image/webp" srcset="../../bilder/rift-rush/hero-400.webp 400w, ../../bilder/rift-rush/hero-800.webp 800w, ../../bilder/rift-rush/hero-1600.webp 1600w" sizes="(min-width: 960px) 1280px, 90vw">
+          <img src="../../bilder/rift-rush/hero-800.jpg" srcset="../../bilder/rift-rush/hero-400.jpg 400w, ../../bilder/rift-rush/hero-800.jpg 800w, ../../bilder/rift-rush/hero-1600.jpg 1600w" sizes="(min-width: 960px) 1280px, 90vw" width="1600" height="1000" alt="Fünf glänzende, würfelförmige Pets in Weiß, Dunkelviolett, Schwarz, Gold und Hellblau stehen auf bunten Sockeln vor einem violetten Hintergrund mit Lichtstrahlen und spiegeln sich im Boden" loading="eager" fetchpriority="high" decoding="async">
+        </picture>
+      </div>
+        <span class="vorschau__hinweis" aria-hidden="true">Auf Roblox ansehen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Überblick</h3>
+        <p>Rift Rush ist ein Speed-Simulator. Man trainiert auf Laufbändern im Rhythmus, steigert sich über Rebirths und Ascensions, lässt Pets aus Eiern schlüpfen und fährt mit sechs Fahrzeugen eine 60-Kilometer-Strecke. Dazu kommen Raids gegen einen Boss, Runen, Expeditionen und ein wechselndes Rift-Wetter. Sechs Inseln bilden die Welt.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Die Aufgabe</h3>
+        <p>Speed-Simulatoren leben von Fortschritt, der sich gut anfühlt, und von Glück, das schnell ins Unfaire kippt. Auf Roblox ist Glücksspiel mit Einsatz verboten, auch mit Spielgegenständen. Ein Spiel muss also spannend bleiben, ohne dass Spieler etwas riskieren, das sie schon haben.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Der Ansatz</h3>
+        <p>Das bekannte Gerüst, darauf eigene Systeme: Training im Takt, bei dem ein perfekter Schritt doppelten Speed gibt, Pets mit Rollen und Ausrüstung, eine lange Rennstrecke mit Pokal-Toren. Glück kostet nie etwas, das man schon besitzt, und alle Quoten stehen im Spiel.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Das System</h3>
+        <p>Geschrieben in Luau: 99 Module mit rund 18.900 Zeilen, gezählt am 04.10.2026. Leitregel ist, dass der Server alles entscheidet und der Client nur Absichten schickt. Pets, Eier, Zonen und Stationen stehen als Datentabellen, nicht im Code. Der Quelltext liegt über Rojo in Git, ein Python-Skript baut die Welt jederzeit neu in den Place. Pets, Fahrzeuge und Inseln entstehen in Blender aus einem eigenen Baukasten, ebenso Symbol und Titelbilder. Die Titelbilder sind Cycles-Renderings mit Randlichtern, Spiegelboden und Tiefenunschärfe, danach folgt eine Nachbearbeitung mit Glühen, Vignette und Farbkorrektur in Python.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Das Ergebnis</h3>
+        <p>Veröffentlicht seit dem 27.09.2026. Offline-Tests und eine Balance-Simulation rechnen den Fortschritt durch, bevor sich Zahlen im Spiel ändern; die Simulation hat ein zu langsames Ascension-Tempo aufgedeckt, das daraufhin korrigiert wurde. Eine Spielerschaft gibt es noch nicht, das Projekt zeigt die Technik.</p>
+      </div>
+    </section>
+    <section class="sektion breite einblenden">
+      <div class="rahmen">
+        <div class="rahmen__leiste" aria-hidden="true"><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span></div>
+        <picture>
+          <source type="image/webp" srcset="../../bilder/rift-rush/raid-400.webp 400w, ../../bilder/rift-rush/raid-800.webp 800w, ../../bilder/rift-rush/raid-1600.webp 1600w" sizes="(min-width: 960px) 1280px, 90vw">
+          <img src="../../bilder/rift-rush/raid-800.jpg" srcset="../../bilder/rift-rush/raid-400.jpg 400w, ../../bilder/rift-rush/raid-800.jpg 800w, ../../bilder/rift-rush/raid-1600.jpg 1600w" sizes="(min-width: 960px) 1280px, 90vw" width="1600" height="1000" alt="Ein Steingolem steht vor einem leuchtenden Portal zwischen Kristallen, davor ein orangefarbenes, ein schwarzes und ein hellblaues Pet" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <p style="margin-top:var(--sp-5);font-size:var(--fs-meta);color:var(--muted)">Rift-Raids: Tore zerstören und einen Boss besiegen. Gerendert in Blender mit Cycles, Randlichtern, Spiegelboden und Tiefenunschärfe.</p>
+    </section>
+    <section class="sektion breite einblenden">
+      <div class="rahmen">
+        <div class="rahmen__leiste" aria-hidden="true"><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span></div>
+        <picture>
+          <source type="image/webp" srcset="../../bilder/rift-rush/rennen-400.webp 400w, ../../bilder/rift-rush/rennen-800.webp 800w, ../../bilder/rift-rush/rennen-1600.webp 1600w" sizes="(min-width: 960px) 1280px, 90vw">
+          <img src="../../bilder/rift-rush/rennen-800.jpg" srcset="../../bilder/rift-rush/rennen-400.jpg 400w, ../../bilder/rift-rush/rennen-800.jpg 800w, ../../bilder/rift-rush/rennen-1600.jpg 1600w" sizes="(min-width: 960px) 1280px, 90vw" width="1600" height="1000" alt="Ein orangefarbener Rennwagen fährt auf einer Palmenstrecke bei tiefstehender Sonne, dahinter ein blauer Wagen, darüber zwei fliegende Pets" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <p style="margin-top:var(--sp-5);font-size:var(--fs-meta);color:var(--muted)">Rennen auf der 60-Kilometer-Strecke bei tiefstehender Sonne, gerendert in Blender mit Cycles.</p>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Technik</h3>
+        <div class="chip-gruppe">
+          <span class="chip">Luau</span>
+          <span class="chip">Roblox Studio</span>
+          <span class="chip">Rojo</span>
+          <span class="chip">Blender</span>
+          <span class="chip">Python</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="sektion--eng breite">
+      <a class="knopf" href="../../work/index.html">← Zurück zu den Arbeiten</a>
+    </section>
+  </main>
+
+  <footer class="fusszeile">
+    <div class="breite fusszeile__inhalt">
+      <p>Joermy — © 2026</p>
+      <ul>
+        <li><a href="https://github.com/Joermy" rel="noopener">GitHub</a></li>
+
+        <li><a href="mailto:jeremy-geiseler@outlook.com">E-Mail</a></li>
+        <li><a href="../../impressum/index.html">Impressum</a></li>
+        <li><a href="../../datenschutz/index.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/bewegung.js" defer></script>
+  <script src="../../assets/js/interaktion.js" defer></script>
+  <script src="../../assets/js/schau.js" defer></script>
+  <script src="../../assets/js/klang.js" defer></script>
+  <script type="module" src="../../assets/js/hintergrund.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>FAIG — Joermy</title>
+  <meta name="description" content="Ein lokaler KI-Coding-Agent als eigenständige Desktop-App.">
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/basis.css">
+  <link rel="stylesheet" href="../../assets/css/raster.css">
+  <link rel="stylesheet" href="../../assets/css/komponenten.css">
+  <link rel="stylesheet" href="../../assets/css/bewegung.css">
+  <link rel="stylesheet" href="../../assets/css/schau.css">
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+  <div class="flor" aria-hidden="true"></div>
+  <canvas class="hero__canvas" data-variante="feld" aria-hidden="true"></canvas>
+
+  <header class="kopfzeile">
+    <div class="breite kopfzeile__inhalt">
+      <a class="marke" href="../../index.html">Joermy</a>
+      <nav class="hauptnav" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="../../work/index.html" aria-current="page">Arbeiten</a></li>
+          <li><a href="../../about/index.html">Über mich</a></li>
+          <li><a href="../../contact/index.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhalt">
+    <header class="projekt-kopf breite">
+      <p class="eyebrow einblenden">KI — 2026</p>
+      <h1 class="einblenden" style="font-size:var(--fs-h2);margin-top:var(--sp-4)">FAIG</h1>
+      <p class="hero__lead einblenden">Ein KI-Agent, der Sprachmodelle lokal auf der eigenen Grafikkarte betreibt — als eigenständige Desktop-App, nicht als Website-Widget.</p>
+      <dl class="projekt-kopf__meta">
+        <div><dt>Rolle</dt><dd>Konzept und Umsetzung</dd></div>
+        <div><dt>Jahr</dt><dd>2026</dd></div>
+        <div><dt>Technologie</dt><dd>Electron, Node.js, JavaScript, llama.cpp, GGUF</dd></div>
+      </dl>
+      <div class="projekt-kopf__aktionen einblenden">
+        <a class="knopf" href="https://github.com/Joermy/faig" rel="noopener">Auf GitHub ansehen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </header>
+
+    <section class="sektion breite einblenden">
+      <a class="vorschau" href="https://github.com/Joermy/faig" rel="noopener" aria-label="Auf GitHub ansehen">
+      <div class="rahmen">
+        <div class="rahmen__leiste" aria-hidden="true"><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span></div>
+        <picture>
+          <source type="image/webp" srcset="../../bilder/faig-ai-agent/hero-400.webp 400w, ../../bilder/faig-ai-agent/hero-800.webp 800w, ../../bilder/faig-ai-agent/hero-1600.webp 1600w" sizes="(min-width: 960px) 1280px, 90vw">
+          <img src="../../bilder/faig-ai-agent/hero-800.jpg" srcset="../../bilder/faig-ai-agent/hero-400.jpg 400w, ../../bilder/faig-ai-agent/hero-800.jpg 800w, ../../bilder/faig-ai-agent/hero-1600.jpg 1600w" sizes="(min-width: 960px) 1280px, 90vw" width="1600" height="1000" alt="Anwendungsfenster von FAIG: Antwort des lokal geladenen Modells qwen2.5-coder-14b im Chat, darunter Dauer und Geschwindigkeit, links die Seitenleiste mit angeheftetem Wissensspeicher" loading="eager" decoding="async">
+        </picture>
+      </div>
+        <span class="vorschau__hinweis" aria-hidden="true">Auf GitHub ansehen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <p style="margin-top:var(--sp-6)"><a class="github-cta" href="https://github.com/Joermy/faig" rel="noopener">Auf GitHub ansehen ↗</a></p>
+    </section>
+
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Überblick</h3>
+        <p>FAIG, kurz für Free AI Agent, ist eine Electron-App, die einen KI-Agenten auf dem eigenen Rechner betreibt. Das Sprachmodell liegt als GGUF-Datei auf der Platte und wird über llama.cpp geladen. Die App kann im Netz suchen, mit Werkzeugen arbeiten und liest einen eigenen Wissensspeicher.</p>
+      </div>
+    </section>
+
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Die Aufgabe</h3>
+        <p>Die meisten KI-Werkzeuge sind an einen Anbieter gebunden, brauchen einen Schlüssel und laufen im Browser. Wer an lokalen Projekten arbeitet, gibt damit bei jeder Anfrage Dateiinhalte aus der Hand — und zahlt pro Aufruf.</p>
+      </div>
+    </section>
+
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Der Ansatz</h3>
+        <p>Eine Desktop-App, in der das Modell selbst auf dem Rechner liegt. Austauschbar über einen Modellordner, ohne Schlüssel, ohne laufende Kosten, ohne Verbindung nach außen, solange keine Websuche angestoßen wird.</p>
+      </div>
+    </section>
+
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Das System</h3>
+        <p>Electron als Anwendungsrahmen, llama.cpp für die Modellausführung, lokale Datenhaltung für Chats und Projektordner. Der Denkaufwand ist je Anfrage einstellbar, Werkzeuge wie die Websuche werden einzeln zugeschaltet. Ein angehefteter Wissensspeicher steht allen Chats zur Verfügung.</p>
+      </div>
+    </section>
+
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Das Ergebnis</h3>
+        <p>Läuft täglich im eigenen Betrieb. Jeder Lauf zeigt Dauer und Geschwindigkeit an, damit sich Modelle und Einstellungen vergleichen lassen.</p>
+      </div>
+    </section>
+
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Technik</h3>
+        <div class="chip-gruppe">
+          <span class="chip">Electron</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">JavaScript</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="sektion--eng breite">
+      <a class="knopf" href="../../work/index.html">← Zurück zu den Arbeiten</a>
+    </section>
+  </main>
+
+  <footer class="fusszeile">
+    <div class="breite fusszeile__inhalt">
+      <p>Joermy — © 2026</p>
+      <ul>
+        <li><a href="https://github.com/Joermy" rel="noopener">GitHub</a></li>
+        
+        <li><a href="mailto:jeremy-geiseler@outlook.com">E-Mail</a></li>
+        <li><a href="../../impressum/index.html">Impressum</a></li>
+        <li><a href="../../datenschutz/index.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/bewegung.js" defer></script>
+  <script src="../../assets/js/interaktion.js" defer></script>
+  <script src="../../assets/js/schau.js" defer></script>
+  <script src="../../assets/js/klang.js" defer></script>
+  <script type="module" src="../../assets/js/hintergrund.js"></script>
+</body>
+</html>
