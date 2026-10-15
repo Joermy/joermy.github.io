@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Radhaus Fuhse — Joermy</title>
+  <meta name="description" content="Musterwebsite für eine Fahrradwerkstatt mit Terminbuchung, Reparaturstatus, Online-Freigabe von Kostenvoranschlägen und Verwaltung mit Zwei-Faktor-Anmeldung. Auf der Startseite zerlegt sich ein E-Bike in 3D.">
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/basis.css">
+  <link rel="stylesheet" href="../../assets/css/raster.css">
+  <link rel="stylesheet" href="../../assets/css/komponenten.css">
+  <link rel="stylesheet" href="../../assets/css/bewegung.css">
+  <link rel="stylesheet" href="../../assets/css/schau.css">
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+  <div class="flor" aria-hidden="true"></div>
+  <canvas class="hero__canvas" data-variante="feld" aria-hidden="true"></canvas>
+  <header class="kopfzeile">
+    <div class="breite kopfzeile__inhalt">
+      <a class="marke" href="../../index.html">Joermy</a>
+      <nav class="hauptnav" aria-label="Hauptnavigation">
+        <ul><li><a href="../../work/index.html" aria-current="page">Arbeiten</a></li><li><a href="../../about/index.html">Über mich</a></li><li><a href="../../contact/index.html">Kontakt</a></li></ul>
+      </nav>
+    </div>
+  </header>
+  <main id="inhalt">
+    <header class="projekt-kopf breite">
+      <p class="eyebrow einblenden">Websites — 2026</p>
+      <h1 class="einblenden" style="font-size:var(--fs-h2);margin-top:var(--sp-4)">Radhaus Fuhse</h1>
+      <p class="hero__lead einblenden">Terminbuchung, Reparaturstatus und Kostenvoranschläge mit Online-Freigabe, dazu eine Verwaltung mit Zwei-Faktor-Anmeldung, Rollen und Zugriffsprotokoll. Auf der Startseite zerlegt sich ein E-Bike in 3D.</p>
+      <dl class="projekt-kopf__meta">
+        <div><dt>Rolle</dt><dd>Konzept, Gestaltung, 3D-Modell, Backend, Umsetzung</dd></div>
+        <div><dt>Jahr</dt><dd>2026</dd></div>
+        <div><dt>Technologie</dt><dd>PHP, SQLite, libsodium, JavaScript, Three.js, Blender</dd></div>
+      </dl>
+      <div class="projekt-kopf__aktionen einblenden">
+        <a class="knopf" href="https://joermy.github.io/muster-fahrradwerkstatt/" rel="noopener">Live ansehen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="knopf knopf--ghost" href="https://github.com/Joermy/muster-fahrradwerkstatt" rel="noopener">Auf GitHub ansehen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </header>
+    <section class="sektion breite einblenden">
+      <a class="vorschau" href="https://joermy.github.io/muster-fahrradwerkstatt/" rel="noopener" aria-label="Live ansehen">
+      <div class="rahmen">
+        <div class="rahmen__leiste" aria-hidden="true"><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span></div>
+        <picture>
+          <source type="image/webp" srcset="../../bilder/muster-fahrradwerkstatt/hero-400.webp 400w, ../../bilder/muster-fahrradwerkstatt/hero-800.webp 800w, ../../bilder/muster-fahrradwerkstatt/hero-1600.webp 1600w" sizes="(min-width: 960px) 1280px, 90vw">
+          <img src="../../bilder/muster-fahrradwerkstatt/hero-800.jpg" srcset="../../bilder/muster-fahrradwerkstatt/hero-400.jpg 400w, ../../bilder/muster-fahrradwerkstatt/hero-800.jpg 800w, ../../bilder/muster-fahrradwerkstatt/hero-1600.jpg 1600w" sizes="(min-width: 960px) 1280px, 90vw" width="1600" height="1000" alt="Startseite der Musterwebsite für eine Fahrradwerkstatt: Überschrift Fahrradwerkstatt in Peine, daneben ein petrolfarbenes 3D-E-Bike im roten Montageständer in einer dunklen Werkstatt mit gelber Bodenmarkierung" loading="eager" fetchpriority="high" decoding="async">
+        </picture>
+      </div>
+        <span class="vorschau__hinweis" aria-hidden="true">Live ansehen <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <p style="margin-top:var(--sp-5);font-size:var(--fs-meta);color:var(--muted)">Musterprojekt. Betrieb, Anschrift, Kundinnen, Kunden und Aufträge sind frei erfunden, die Umsetzung ist es nicht. Fotos gibt es keine: E-Bike und Werkstatt sind eigene Arbeit in Blender und Three.js. Die Verwaltung lässt sich ausprobieren unter <a href="https://joermy.github.io/muster-fahrradwerkstatt/verwaltung/" rel="noopener">/verwaltung/</a> mit dem Benutzer inhaberin und dem Passwort Werkstatt-Vorfuehrung; den Code der Authenticator-App zeigt die Anmeldeseite an.</p>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Überblick</h3>
+        <p>Eine Website für eine erfundene Fahrradwerkstatt in Peine, die nicht nur zeigt, sondern arbeitet: Kundinnen und Kunden buchen einen Termin, verfolgen ihre Reparatur über einen persönlichen Link und geben Zusatzarbeiten online frei. Die Werkstatt erledigt alles Übrige in einem eigenen, geschützten Bereich. Die Startseite erzählt eine Reparatur in sieben Kapiteln, an einem E-Bike, das vollständig als 3D-Modell gebaut ist.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Die Aufgabe</h3>
+        <p>Sobald eine Website Kundendaten annimmt, wird aus der Visitenkarte ein System mit Pflichten: Die Daten müssen sicher liegen und nach festen Fristen wieder verschwinden, Einwilligungen müssen nachweisbar sein, Aufträge über die Website brauchen Widerrufsbelehrung und Widerrufsbutton. Kleine Betriebe lösen das oft mit drei Fremddiensten, die jeder eigene Cookies, Verträge und Kosten mitbringen.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Der Ansatz</h3>
+        <p>Alles aus einer Hand und ohne Fremdanbieter. Buchung, Status, Freigabe und Verwaltung laufen auf dem eigenen Server, Personendaten liegen verschlüsselt und löschen sich nach Ablauf der Fristen selbst. Die Kundschaft kann ihre Daten jederzeit herunterladen oder löschen, und ohne Klick lädt nichts von fremden Servern.</p>
+        <p>Auf der Startseite geht ein E-Bike einmal durch die Werkstatt: Ein Lichtvorhang tastet es ab, es zerlegt sich, schaltet durch zwölf Gänge, die Bremsscheibe glüht auf dem Prüfstand, das Laufrad wird zentriert und der Akku kommt heraus. Jedes Bauteil lässt sich antippen und zeigt Preis und Leistung dazu.</p>
+      </div>
+    </section>
+    <section class="sektion--eng breite einblenden">
+      <div class="galerie-zwei">
+        <div class="rahmen">
+        <div class="rahmen__leiste" aria-hidden="true"><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span></div>
+        <picture>
+          <source type="image/webp" srcset="../../bilder/muster-fahrradwerkstatt/zerlegt-400.webp 400w, ../../bilder/muster-fahrradwerkstatt/zerlegt-800.webp 800w, ../../bilder/muster-fahrradwerkstatt/zerlegt-1600.webp 1600w" sizes="(min-width: 960px) 640px, 90vw">
+          <img src="../../bilder/muster-fahrradwerkstatt/zerlegt-800.jpg" srcset="../../bilder/muster-fahrradwerkstatt/zerlegt-400.jpg 400w, ../../bilder/muster-fahrradwerkstatt/zerlegt-800.jpg 800w, ../../bilder/muster-fahrradwerkstatt/zerlegt-1600.jpg 1600w" sizes="(min-width: 960px) 640px, 90vw" width="1600" height="1000" alt="Kapitel Zerlegen: Laufräder, Federgabel, Akku, Motor und Kette schweben vom Rahmen weg, der im roten Montageständer bleibt; rechts die Textkarte Jedes Teil einzeln" loading="lazy" decoding="async">
+        </picture>
+      </div>
+        <div class="rahmen">
+        <div class="rahmen__leiste" aria-hidden="true"><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span></div>
+        <picture>
+          <source type="image/webp" srcset="../../bilder/muster-fahrradwerkstatt/bremse-400.webp 400w, ../../bilder/muster-fahrradwerkstatt/bremse-800.webp 800w, ../../bilder/muster-fahrradwerkstatt/bremse-1600.webp 1600w" sizes="(min-width: 960px) 640px, 90vw">
+          <img src="../../bilder/muster-fahrradwerkstatt/bremse-800.jpg" srcset="../../bilder/muster-fahrradwerkstatt/bremse-400.jpg 400w, ../../bilder/muster-fahrradwerkstatt/bremse-800.jpg 800w, ../../bilder/muster-fahrradwerkstatt/bremse-1600.jpg 1600w" sizes="(min-width: 960px) 640px, 90vw" width="1600" height="1000" alt="Kapitel Bremse: Nahaufnahme der vorderen Bremsscheibe, die auf dem Prüfstand orange glüht, oben rechts die Anzeige 432 °C" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Die Verwaltung</h3>
+        <p>Anmeldung mit Passwort und Code aus der Authenticator-App, beim ersten Mal mit Pflicht zum eigenen Passwort und zu Ersatzcodes. Die Übersicht zeigt die Termine des Tages, die nächsten sieben Tage und was offen ist. Jeder Auftrag hat seinen Anhänger wie das Rad am Tresen, mit Status, Kostenvoranschlag aus der Preisliste, internen Notizen, Verlauf, Auskunft und Löschung auf Knopfdruck.</p>
+        <p>Die Kundschaft sieht denselben Auftrag über ihren persönlichen Link, ohne Konto: Verlauf, Kostenvoranschlag und den Knopf, um Zusatzarbeiten zahlungspflichtig freizugeben. Danach kommt die Vertragsbestätigung mit Widerrufsbelehrung per Mail, und der Widerrufsbutton nach § 356a BGB steht auf jeder Seite bereit. Wochenplan, Schließtage, Benutzer mit Rollen und das Zugriffsprotokoll pflegt die Inhaberin selbst.</p>
+      </div>
+    </section>
+    <section class="sektion--eng breite einblenden">
+      <div class="rahmen">
+        <div class="rahmen__leiste" aria-hidden="true"><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span></div>
+        <picture>
+          <source type="image/webp" srcset="../../bilder/muster-fahrradwerkstatt/verwaltung-400.webp 400w, ../../bilder/muster-fahrradwerkstatt/verwaltung-800.webp 800w, ../../bilder/muster-fahrradwerkstatt/verwaltung-1600.webp 1600w" sizes="(min-width: 960px) 1280px, 90vw">
+          <img src="../../bilder/muster-fahrradwerkstatt/verwaltung-800.jpg" srcset="../../bilder/muster-fahrradwerkstatt/verwaltung-400.jpg 400w, ../../bilder/muster-fahrradwerkstatt/verwaltung-800.jpg 800w, ../../bilder/muster-fahrradwerkstatt/verwaltung-1600.jpg 1600w" sizes="(min-width: 960px) 1280px, 90vw" width="1600" height="1000" alt="Übersicht der Verwaltung: Begrüßung, Kacheln mit neuen Anfragen, bestätigten Terminen, Rädern in der Werkstatt, abholbereiten Rädern und offenen Widerrufen, darunter die Termine des Tages und der nächsten sieben Tage" loading="lazy" decoding="async">
+        </picture>
+      </div>
+    </section>
+    <section class="sektion--eng breite einblenden">
+      <div class="galerie-zwei">
+        <div class="rahmen">
+        <div class="rahmen__leiste" aria-hidden="true"><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span></div>
+        <picture>
+          <source type="image/webp" srcset="../../bilder/muster-fahrradwerkstatt/auftrag-400.webp 400w, ../../bilder/muster-fahrradwerkstatt/auftrag-800.webp 800w, ../../bilder/muster-fahrradwerkstatt/auftrag-1600.webp 1600w" sizes="(min-width: 960px) 640px, 90vw">
+          <img src="../../bilder/muster-fahrradwerkstatt/auftrag-800.jpg" srcset="../../bilder/muster-fahrradwerkstatt/auftrag-400.jpg 400w, ../../bilder/muster-fahrradwerkstatt/auftrag-800.jpg 800w, ../../bilder/muster-fahrradwerkstatt/auftrag-1600.jpg 1600w" sizes="(min-width: 960px) 640px, 90vw" width="1600" height="1000" alt="Auftrag in der Verwaltung: Anhänger mit Auftragsnummer und Status Wartet auf Freigabe, Kontaktdaten, Kostenvoranschlag mit drei Positionen und der Verlauf des Auftrags" loading="lazy" decoding="async">
+        </picture>
+      </div>
+        <div class="rahmen">
+        <div class="rahmen__leiste" aria-hidden="true"><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span></div>
+        <picture>
+          <source type="image/webp" srcset="../../bilder/muster-fahrradwerkstatt/status-400.webp 400w, ../../bilder/muster-fahrradwerkstatt/status-800.webp 800w, ../../bilder/muster-fahrradwerkstatt/status-1600.webp 1600w" sizes="(min-width: 960px) 640px, 90vw">
+          <img src="../../bilder/muster-fahrradwerkstatt/status-800.jpg" srcset="../../bilder/muster-fahrradwerkstatt/status-400.jpg 400w, ../../bilder/muster-fahrradwerkstatt/status-800.jpg 800w, ../../bilder/muster-fahrradwerkstatt/status-1600.jpg 1600w" sizes="(min-width: 960px) 640px, 90vw" width="1600" height="1000" alt="Reparaturstatus aus Sicht der Kundin: Anhänger mit Auftragsnummer und Status Wartet auf Ihre Freigabe, Verlauf des Auftrags und rechts der Kostenvoranschlag mit drei Positionen zum Freigeben" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Das System</h3>
+        <p>PHP 8.3 ohne Framework, SQLite als Datenbank. Name, E-Mail, Telefon und Notizen liegen mit XChaCha20-Poly1305 verschlüsselt in der Datenbank, jedes Feld an seinen Auftrag gebunden; gesucht wird über einen HMAC-Index statt über Klartext. Passwörter mit Argon2id, Zwei-Faktor-Codes mit Schutz vor Wiederverwendung, Sitzungen im __Host-Cookie, jede Änderung mit CSRF-Token, jeder Zugriff auf einen Auftrag im Protokoll. Eingaben nur als JSON mit fester Feldliste, Drosselung ohne gespeicherte IP-Adresse, Content-Security-Policy ohne Inline-Skripte. Sicherungen laufen täglich und verschlüsselt.</p>
+        <p>Das E-Bike entsteht per Python-Skript in Blender: 51 Teile mit rund 255.000 Dreiecken, darunter Federgabel, 12-fach-Kassette, Scheibenbremsen und Mittelmotor. Die Kette ist physikalisch gelegt, 132 Glieder über Kettenblatt, Ritzel und Schaltröllchen, der Käfig des Schaltwerks hält beim Schalten die Länge. Three.js rendert mit Umgebungsverdeckung, Schatten, Glühen und Tiefenschärfe; ein Leistungswächter senkt auf schwachen Geräten Auflösung und Effekte.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Ergebnis</h3>
+        <p>84 automatische Tests, PHPStan auf Stufe 8 ohne Fehler, eigener Rechtscheck nach DSGVO, TDDDG, BGB und BFSG ohne offene Befunde, WCAG-Prüfung mit axe ohne Verstöße. Die Vorführfassung läuft auf GitHub Pages; dort spielt ein nachgebauter Server im Browser die Schnittstelle nach, Eingaben bleiben im Tab. Für den echten Betrieb liegen Konfigurationen für Apache und nginx bei.</p>
+      </div>
+    </section>
+    <section class="projekt-abschnitt breite">
+      <div class="projekt-abschnitt__inhalt einblenden">
+        <h3>Technik</h3>
+        <div class="chip-gruppe"><span class="chip">PHP</span><span class="chip">SQLite</span><span class="chip">libsodium</span><span class="chip">JavaScript</span><span class="chip">Three.js</span><span class="chip">Blender</span><span class="chip">Python</span></div>
+      </div>
+    </section>
+    <section class="sektion--eng breite">
+      <div style="display:flex;flex-wrap:wrap;gap:var(--sp-3)">
+        <a class="knopf" href="https://joermy.github.io/muster-fahrradwerkstatt/" rel="noopener">Seite öffnen</a>
+        <a class="knopf knopf--ghost" href="https://joermy.github.io/muster-fahrradwerkstatt/verwaltung/" rel="noopener">Verwaltung ausprobieren</a>
+        <a class="knopf knopf--ghost" href="https://github.com/Joermy/muster-fahrradwerkstatt" rel="noopener">Quelltext auf GitHub</a>
+        <a class="knopf knopf--ghost" href="../../work/index.html">← Zurück zu den Arbeiten</a>
+      </div>
+    </section>
+  </main>
+  <footer class="fusszeile">
+    <div class="breite fusszeile__inhalt">
+      <p>Joermy — © 2026</p>
+      <ul><li><a href="https://github.com/Joermy" rel="noopener">GitHub</a></li><li><a href="mailto:jeremy-geiseler@outlook.com">E-Mail</a></li><li><a href="../../impressum/index.html">Impressum</a></li><li><a href="../../datenschutz/index.html">Datenschutz</a></li></ul>
+    </div>
+  </footer>
+  <script src="../../assets/js/bewegung.js" defer></script>
+  <script src="../../assets/js/interaktion.js" defer></script>
+  <script src="../../assets/js/schau.js" defer></script>
+  <script type="module" src="../../assets/js/weich.js"></script>
+  <script src="../../assets/js/klang.js" defer></script>
+  <script type="module" src="../../assets/js/hintergrund.js"></script>
+</body>
+</html>
