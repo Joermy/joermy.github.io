@@ -6,9 +6,9 @@ window.PROJEKTE = [
     type: "website",
     year: 2026,
     role: "Konzept, Gestaltung, 3D-Modell, Backend, Umsetzung",
-    technologies: ["PHP", "SQLite", "libsodium", "JavaScript", "Three.js", "Blender", "Python"],
+    technologies: ["PHP", "SQLite", "libsodium", "JavaScript", "Blender", "Cycles", "Python"],
     description:
-      "Terminbuchung, Reparaturstatus und Kostenvoranschläge mit Online-Freigabe, dazu eine Verwaltung mit Zwei-Faktor-Anmeldung, Rollen und Zugriffsprotokoll. Auf der Startseite zerlegt sich ein E-Bike in 3D.",
+      "Terminbuchung, Reparaturstatus und Kostenvoranschläge mit Online-Freigabe, dazu eine Verwaltung mit Zwei-Faktor-Anmeldung, Rollen und Zugriffsprotokoll. Auf der Startseite zerlegt sich ein fotorealistisch gerendertes E-Bike.",
     overview:
       "Eine Website für eine erfundene Fahrradwerkstatt in Peine, die nicht nur zeigt, sondern arbeitet: Kundinnen und Kunden buchen einen Termin, verfolgen ihre Reparatur über einen persönlichen Link und geben Zusatzarbeiten online frei. Die Werkstatt erledigt alles Übrige in einem eigenen, geschützten Bereich. Die Startseite erzählt eine Reparatur in sieben Kapiteln, an einem E-Bike, das vollständig als 3D-Modell gebaut ist.",
     problem:
@@ -16,7 +16,7 @@ window.PROJEKTE = [
     idea:
       "Alles aus einer Hand und ohne Fremdanbieter. Buchung, Status, Freigabe und Verwaltung laufen auf dem eigenen Server, Personendaten liegen verschlüsselt und löschen sich nach Ablauf der Fristen selbst. Die Kundschaft kann ihre Daten jederzeit herunterladen oder löschen, und ohne Klick lädt nichts von fremden Servern.",
     system:
-      "PHP 8.3 ohne Framework, SQLite als Datenbank. Name, E-Mail, Telefon und Notizen liegen mit XChaCha20-Poly1305 verschlüsselt in der Datenbank, jedes Feld an seinen Auftrag gebunden; gesucht wird über einen HMAC-Index statt über Klartext. Die Verwaltung meldet mit Argon2id und Zwei-Faktor-Code an, jede Änderung braucht einen CSRF-Token, jeder Zugriff auf einen Auftrag landet im Protokoll. Das E-Bike entsteht per Python-Skript in Blender, 51 Teile mit rund 255.000 Dreiecken; die Kette ist physikalisch gelegt, 132 Glieder über Kettenblatt, Ritzel und Schaltröllchen.",
+      "PHP 8.3 ohne Framework, SQLite als Datenbank. Name, E-Mail, Telefon und Notizen liegen mit XChaCha20-Poly1305 verschlüsselt in der Datenbank, jedes Feld an seinen Auftrag gebunden; gesucht wird über einen HMAC-Index statt über Klartext. Die Verwaltung meldet mit Argon2id und Zwei-Faktor-Code an, jede Änderung braucht einen CSRF-Token, jeder Zugriff auf einen Auftrag landet im Protokoll. E-Bike und Werkstatt entstehen per Python-Skript in Blender und werden mit Cycles fotorealistisch als Bildfolge gerendert; die Kette ist physikalisch gelegt, 130 Glieder über Kettenblatt, Ritzel und Schaltröllchen.",
     result:
       "84 automatische Tests, PHPStan auf Stufe 8 ohne Fehler, eigener Rechtscheck nach DSGVO, TDDDG, BGB und BFSG ohne offene Befunde, WCAG-Prüfung mit axe ohne Verstöße. Die Vorführfassung läuft auf GitHub Pages; dort spielt ein nachgebauter Server im Browser die Schnittstelle nach, Eingaben bleiben im Tab.",
     github: "https://github.com/Joermy/muster-fahrradwerkstatt",
@@ -24,7 +24,7 @@ window.PROJEKTE = [
     heroImage: "bilder/muster-fahrradwerkstatt/hero",
     heroBreitePx: 1600,
     heroHoehePx: 1000,
-    heroAlt: "Startseite der Musterwebsite für eine Fahrradwerkstatt: Überschrift Fahrradwerkstatt in Peine, daneben ein petrolfarbenes 3D-E-Bike im roten Montageständer in einer dunklen Werkstatt mit gelber Bodenmarkierung",
+    heroAlt: "Startseite der Musterwebsite für eine Fahrradwerkstatt: Überschrift Fahrradwerkstatt in Peine, daneben ein vollgefedertes E-Mountainbike mit petrolfarbenem Rahmen und goldener Federgabel im Montageständer einer hellen Werkstatt mit Werkbank und Werkzeugwand",
     galerie: []
   },
   {
