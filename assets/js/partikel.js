@@ -171,8 +171,6 @@ export function partikelBauen(THREE, { geometrie, anzahl, rauschSkala }) {
     uRauschSkala: { value: rauschSkala },
     uSkala: { value: 600 },
     uTempo: { value: 0 },
-    uZeiger: { value: new THREE.Vector3(99, 99, 0) },
-    uZeigerKraft: { value: 0 },
     uZeichenOrt: { value: new THREE.Vector3() },
     uZeichenGroesse: { value: 1.6 },
     uDeckkraft: { value: 1 },
@@ -193,8 +191,6 @@ export function partikelBauen(THREE, { geometrie, anzahl, rauschSkala }) {
       uniform float uRauschSkala;
       uniform float uSkala;
       uniform float uTempo;
-      uniform vec3 uZeiger;
-      uniform float uZeigerKraft;
       uniform vec3 uZeichenOrt;
       uniform float uZeichenGroesse;
       uniform mat4 uBand;
@@ -231,10 +227,7 @@ export function partikelBauen(THREE, { geometrie, anzahl, rauschSkala }) {
         vec3 imZeichen = uZeichenOrt + aZeichen * uZeichenGroesse + stroemung(aZeichen * 4.0 + uZeit * 0.5) * 0.025;
         p = mix(p, imZeichen, sammeln);
 
-        // Der Zeiger schiebt Punkte beiseite, schnelles Scrollen zieht sie mit
-        vec2 abstand = p.xy - uZeiger.xy;
-        float naehe = smoothstep(0.85, 0.0, length(abstand));
-        p.xy += normalize(abstand + 0.0001) * naehe * uZeigerKraft * 0.5;
+        // Schnelles Scrollen zieht die Punkte mit
         p.y += uTempo * (0.2 + aZufall.y * 0.5) * 0.35;
 
         vec4 mv = modelViewMatrix * vec4(p, 1.0);

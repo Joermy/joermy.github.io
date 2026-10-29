@@ -109,7 +109,8 @@ Szene, die sich mit dem Scrollen verwandelt. Umgesetzt in `assets/js/partikel.js
 3. **Galaxie.** Die Punkte strömen in einen Wirbel mit drei Armen, der sich innen schneller dreht als außen.
 4. **Logo.** Am Ende der Seite sammeln sie sich zum Sechseck-Rahmen: auf der Startseite um den
    Abschluss-Text, auf Unterseiten kleiner rechts neben dem Inhalt.
-5. **Interaktion.** Punkte weichen dem Zeiger aus, schnelles Scrollen zieht sie mit.
+5. **Scrollen.** Schnelles Scrollen zieht die Punkte mit. Ausweichen vor dem Mauszeiger gab es kurz,
+   es wirkte unruhig und ist wieder raus.
 6. **Kino-Finish.** Farbtrennung, die mit dem Scrolltempo wächst, dazu Vignette und feines Filmkorn.
 
 Technik: Alles läuft im Vertex-Shader ohne Simulationspuffer, also auch mit WebGL 1 und auf
