@@ -1,166 +1,32 @@
-:root {
-  --kurve: cubic-bezier(0.22, 1, 0.36, 1);
-  --kurve-weich: cubic-bezier(0.65, 0, 0.35, 1);
-}
-
-/* Systemstart: Logo zeichnet sich, Zähler läuft hoch */
-
-html:has(.vorhang:not([data-fertig])) {
-  overflow: hidden;
-}
-
-.vorhang {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  display: grid;
-  place-items: center;
-  background-color: var(--bg);
-  background-image: var(--hex-muster);
-  background-size: 41.57px 72px;
-  transition: opacity 0.55s var(--kurve-weich), visibility 0.55s;
-  animation: vorhang-notaus 0.5s 4.5s forwards;
-  --fortschritt: 0;
-}
-
-.vorhang[data-fertig] {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.vorhang[data-sofort] {
-  transition-duration: 0.2s;
-}
-
-@keyframes vorhang-notaus {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-.vorhang__inhalt {
-  display: grid;
-  justify-items: center;
-  gap: var(--sp-5);
-  text-align: center;
-  transition: transform 0.6s var(--kurve);
-}
-
-.vorhang[data-fertig] .vorhang__inhalt {
-  transform: scale(0.96);
-}
-
-.vorhang__logo {
-  width: 88px;
-  height: 88px;
-  overflow: visible;
-  filter: drop-shadow(0 0 22px rgba(6, 214, 160, 0.5));
-}
-
-.vorhang__logo .marke__huelle {
-  stroke-dasharray: 100;
-  stroke-dashoffset: calc(100 - var(--fortschritt) * 100);
-}
-
-.vorhang__logo .marke__kern {
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: scale(calc(0.3 + var(--fortschritt) * 0.7));
-  opacity: calc(var(--fortschritt) * 1.4);
-}
-
-.vorhang__marke {
-  margin: 0;
-  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-
-.vorhang__marke span:first-child {
-  text-transform: uppercase;
-}
-
-.vorhang__marke span:last-child {
-  color: var(--akzent);
-  font-weight: 400;
-}
-
-.vorhang__zeile {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 240px;
-  margin: 0;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: var(--sperrung-weit);
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.vorhang__zahl {
-  color: var(--akzent);
-  font-variant-numeric: tabular-nums;
-}
-
-.vorhang__balken {
-  width: 240px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--linie-hell);
-  overflow: hidden;
-}
-
-.vorhang__balken i {
-  display: block;
-  height: 100%;
-  background: var(--akzent);
-  box-shadow: 0 0 12px var(--akzent);
-  transform: scaleX(var(--fortschritt));
-  transform-origin: 0 50%;
-}
-
-/* 3D-Logo im Hintergrund der Unterseiten */
-
-.feld {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  width: 100vw;
-  height: 100vh;
-  height: 100lvh;
-  pointer-events: none;
-  opacity: 0;
-  mix-blend-mode: screen;
-  transition: opacity 1.2s ease;
-}
-
-.feld.ist-bereit {
-  opacity: 1;
-}
-
-/* Einblenden beim Scrollen */
-
 @media (prefers-reduced-motion: no-preference) {
+
   .kopfzeile {
     transition: background-color 300ms ease, border-color 300ms ease;
   }
 
   .js-bewegung .einblenden {
     opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 700ms var(--kurve), transform 800ms var(--kurve);
+    transform: translateY(40px) scale(0.985);
+    transition: opacity 900ms cubic-bezier(0.22, 1, 0.36, 1), transform 1100ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .js-bewegung .einblenden.ist-sichtbar {
     opacity: 1;
-    transform: none;
+    transform: translateY(0);
+  }
+
+  .js-bewegung .zeile__inner {
+    display: inline-block;
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .js-bewegung .zeile__inner.ist-aufgedeckt {
+    clip-path: inset(0 0 0% 0);
   }
 
   .projekt-karte__bild-wrap img {
-    transition: transform 700ms var(--kurve), filter 500ms ease;
+    transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   .projekt-karte:hover .projekt-karte__bild-wrap img,
@@ -174,11 +40,19 @@ html:has(.vorhang:not([data-fertig])) {
 
   .projekt-karte:hover .projekt-karte__pfeil svg,
   .projekt-karte:focus-visible .projekt-karte__pfeil svg {
-    transform: translate(2px, -2px);
+    transform: translateX(4px);
+  }
+
+  .papier {
+    transition: transform 300ms ease;
+  }
+
+  .papier-buehne:hover .papier {
+    transform: rotate(0deg) translateY(-6px);
   }
 
   .projekt-karte {
-    transition: opacity 220ms ease, border-color 300ms ease;
+    transition: opacity 220ms ease;
   }
 
   .projekt-karte--gefiltert {
@@ -186,29 +60,16 @@ html:has(.vorhang:not([data-fertig])) {
     pointer-events: none;
   }
 
-  .knopf,
-  .pille,
-  .chip,
-  .aktion,
-  .hauptnav a,
-  .liste__eintrag,
-  .filterleiste button,
-  .klang-schalter,
-  .eingabe__feld,
-  .eingabe__senden {
-    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
-  }
-
   @view-transition {
     navigation: auto;
   }
 
   ::view-transition-old(root) {
-    animation: seite-weg 220ms ease both;
+    animation: seite-weg 260ms ease both;
   }
 
   ::view-transition-new(root) {
-    animation: seite-rein 340ms var(--kurve) both;
+    animation: seite-rein 340ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
   }
 
   @keyframes seite-weg {
@@ -223,39 +84,64 @@ html:has(.vorhang:not([data-fertig])) {
       transform: translateY(8px);
     }
   }
-}
 
-.einblenden.ist-fertig {
-  opacity: 1 !important;
-  transform: none !important;
-  transition: none !important;
-}
+  .hero__buehne span,
+  .hero__canvas {
+    transition: transform 300ms ease-out, opacity 500ms ease;
+  }
 
-html.lenis,
-html.lenis body {
-  height: auto;
-}
+  .hero__buehne {
+    transform: translateY(calc(var(--scroll, 0) * 70px));
+    opacity: calc(1 - var(--scroll, 0) * 0.9);
+  }
 
-.lenis.lenis-stopped {
-  overflow: clip;
+  .hero__canvas.ist-bereit {
+    opacity: calc((1 - var(--scroll, 0) * 0.55) * (1 - var(--dimm, 0) * 0.62));
+  }
+
+  .hero h1,
+  .hero__lead,
+  .hero__scroll,
+  .hero__aktionen,
+  .hero .plakette,
+  .hero > .eyebrow {
+    transform: translateY(calc(var(--scroll, 0) * -30px));
+    opacity: calc(1 - var(--scroll, 0) * 1.6);
+  }
+
+  .projekt-karte__medien {
+    transition: border-color 300ms ease, box-shadow 300ms ease;
+  }
+
+  .projekt-karte__medien::after {
+    transition: opacity 300ms ease;
+  }
+
+  .rahmen {
+    transition: border-color 300ms ease, box-shadow 300ms ease;
+  }
+
+  .chip {
+    transition: border-color 200ms ease, background-color 200ms ease;
+  }
+
+  .knopf,
+  .knopf--ghost {
+    transition: background 250ms ease, color 250ms ease, border-color 250ms ease, transform 200ms ease;
+  }
+
+  .filterleiste button {
+    transition: border-color 200ms ease, color 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .vorhang {
-    display: none;
+  .js-bewegung .einblenden {
+    opacity: 1;
+    transform: none;
   }
 
-  .zustand .punkt,
-  .blase__zeiger,
-  .orbit__faden {
-    animation: none;
-  }
-
-  .orbit__faden {
-    stroke-dashoffset: 0;
-  }
-
-  .klang-schalter {
-    display: none;
+  .js-bewegung .zeile__inner {
+    clip-path: none;
   }
 }

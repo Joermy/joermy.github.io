@@ -16,6 +16,48 @@
 
   document.documentElement.classList.add("js-bewegung");
 
+  const woerterBuehnen = Array.from(document.querySelectorAll("[data-woerter]")).map((el) => {
+    const text = el.textContent.trim();
+    const hervor = new Set((el.dataset.hervor || "").split(/\s+/).filter(Boolean));
+    el.setAttribute("aria-label", text);
+    el.innerHTML = text
+      .split(/\s+/)
+      .map((w) => `<span class="wort${hervor.has(w) ? " ist-hervor" : ""}" aria-hidden="true">${w}</span>`)
+      .join(" ");
+    const rahmen = el.closest(".statement") || el;
+    return { spannen: Array.from(el.querySelectorAll(".wort")), rahmen, buehne: rahmen.querySelector(".statement__buehne") };
+  });
+
+  function woerterAktualisieren() {
+    const hoehe = window.innerHeight || 1;
+    woerterBuehnen.forEach(({ spannen, rahmen, buehne }) => {
+      const kasten = rahmen.getBoundingClientRect();
+      const strecke = Math.max(kasten.height - hoehe, 1);
+      const anteil = Math.min(Math.max((-kasten.top + hoehe * 0.35) / (strecke * 0.85), 0), 1);
+      const n = spannen.length;
+      spannen.forEach((w, i) => {
+        const lokal = Math.min(Math.max(anteil * (n + 1.5) - i, 0), 1);
+        w.style.setProperty("--an", lokal.toFixed(3));
+        w.classList.toggle("ist-vorne", lokal > 0.02 && lokal < 0.98);
+      });
+      if (buehne) buehne.style.setProperty("--fortschritt", anteil.toFixed(4));
+    });
+  }
+
+  const scrollAktualisieren = () => {
+    const bezug = window.innerHeight || 1;
+    const fortschritt = Math.min(Math.max(window.scrollY / bezug, 0), 1);
+    document.documentElement.style.setProperty("--scroll", fortschritt.toFixed(3));
+    if (woerterBuehnen.length) woerterAktualisieren();
+  };
+  scrollAktualisieren();
+  window.addEventListener("resize", scrollAktualisieren, { passive: true });
+  window.addEventListener(
+    "scroll",
+    scrollAktualisieren,
+    { passive: true }
+  );
+
   function beobachten(elemente) {
     if (!("IntersectionObserver" in window)) {
       elemente.forEach((e) => e.classList.add("ist-sichtbar"));
@@ -57,78 +99,27 @@
     if (!document.hidden) setTimeout(nachzuegler, 200);
   });
 
-  // Nach dem Einblenden die Übergänge abschalten, damit Hover-Effekte nicht nachziehen
-  function endzustandFestschreiben() {
-    document.querySelectorAll(".einblenden.ist-sichtbar:not(.ist-fertig)").forEach((el) => {
-      el.style.transitionDelay = "";
-      el.classList.add("ist-fertig");
+  let aufgedeckt = false;
+  function titelAufdecken() {
+    if (aufgedeckt) return;
+    aufgedeckt = true;
+    document.querySelectorAll(".zeile__inner").forEach((zeile, i) => {
+      setTimeout(() => zeile.classList.add("ist-aufgedeckt"), i * 110);
     });
   }
-  setInterval(endzustandFestschreiben, 1500);
 
-  // Antwort im Chat tippt sich, sobald das Fenster im Bild ist
-  document.querySelectorAll("[data-tippen]").forEach((blase) => {
-    const text = blase.textContent.trim();
-    const hervor = blase.dataset.tippen.split(/\s+/).filter(Boolean);
-    const vorlesen = document.createElement("span");
-    vorlesen.className = "sr-only";
-    vorlesen.textContent = text;
-    const sicht = document.createElement("span");
-    sicht.setAttribute("aria-hidden", "true");
-    const zeiger = document.createElement("span");
-    zeiger.className = "blase__zeiger";
-    zeiger.setAttribute("aria-hidden", "true");
-    blase.replaceChildren(vorlesen, sicht, zeiger);
-    blase.style.minHeight = "";
+  function endzustandFestschreiben() {
+    document
+      .querySelectorAll(".zeile__inner.ist-aufgedeckt:not(.ist-fertig), .ist-sichtbar:not(.ist-fertig)")
+      .forEach((el) => el.classList.add("ist-fertig"));
+  }
 
-    const fassen = (stand) => {
-      const teil = text.slice(0, stand);
-      sicht.innerHTML = "";
-      teil.split(/(\s+)/).forEach((wort) => {
-        if (!wort) return;
-        if (hervor.includes(wort.replace(/[.,]/g, "")) && /\S/.test(wort)) {
-          const em = document.createElement("em");
-          em.textContent = wort;
-          sicht.appendChild(em);
-        } else {
-          sicht.appendChild(document.createTextNode(wort));
-        }
-      });
-    };
-
-    let gestartet = false;
-    const starten = () => {
-      if (gestartet) return;
-      gestartet = true;
-      let stand = 0;
-      const schritt = () => {
-        stand = Math.min(stand + 1 + Math.floor(Math.random() * 2), text.length);
-        fassen(stand);
-        if (stand < text.length) setTimeout(schritt, 26 + Math.random() * 30);
-        else {
-          blase.style.minHeight = "";
-          setTimeout(() => zeiger.remove(), 2400);
-        }
-      };
-      schritt();
-    };
-
-    // Platz für den ganzen Text reservieren, damit nichts springt
-    fassen(text.length);
-    const hoehe = blase.getBoundingClientRect().height;
-    if (hoehe) blase.style.minHeight = `${hoehe}px`;
-    fassen(0);
-
-    if ("IntersectionObserver" in window) {
-      const obs = new IntersectionObserver((eintraege) => {
-        if (eintraege.some((e) => e.isIntersecting)) {
-          obs.disconnect();
-          setTimeout(starten, 350);
-        }
-      }, { threshold: 0.5 });
-      obs.observe(blase);
-    } else {
-      starten();
-    }
+  setTimeout(endzustandFestschreiben, 2600);
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) setTimeout(endzustandFestschreiben, 100);
   });
+  window.addEventListener("focus", () => setTimeout(endzustandFestschreiben, 100));
+
+  document.addEventListener("vorhang:offen", titelAufdecken);
+  setTimeout(titelAufdecken, 3600);
 })();

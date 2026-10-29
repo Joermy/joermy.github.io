@@ -31,6 +31,18 @@ Website selbst.
 Eintrag in `daten/projekte.js` ergänzen und Bilder unter `bilder/<slug>/` ablegen. Startseite
 und Übersicht entstehen aus diesem Datensatz, die Projektseite liegt unter `work/<slug>/`.
 
+## Standbild des Bands
+
+Ohne WebGL und während die Szene lädt, steht ein Standbild an der Stelle des Bands. Blender
+rendert es mit denselben Leuchtflächen wie `assets/js/hintergrund.js`:
+
+```bash
+python scripts/standbild-rendern.py
+```
+
+Braucht Blender als Python-Modul (`pip install bpy`, Python 3.11). Warum die Seite so aussieht,
+wie sie aussieht, steht in `DESIGN.md`.
+
 ## Prüfen
 
 ```bash
