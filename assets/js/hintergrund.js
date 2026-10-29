@@ -172,20 +172,6 @@
   window.addEventListener("scroll", scrollLesen, { passive: true });
   window.addEventListener("resize", scrollLesen, { passive: true });
 
-  // Zeiger in Bildschirmkoordinaten für die Partikel; auch Wischen auf dem Telefon zählt
-  const zeigerNdc = new THREE.Vector2(9, 9);
-  let zuletztBewegt = -1e9;
-  window.addEventListener("pointermove", (ev) => {
-    zeigerNdc.set((ev.clientX / window.innerWidth) * 2 - 1, -(ev.clientY / window.innerHeight) * 2 + 1);
-    zuletztBewegt = performance.now();
-  }, { passive: true });
-  const strahl = new THREE.Vector3();
-  function zeigerInDerWelt(ziel) {
-    strahl.set(zeigerNdc.x, zeigerNdc.y, 0.5).unproject(kamera).sub(kamera.position).normalize();
-    const t = -kamera.position.z / (strahl.z || -1);
-    ziel.copy(kamera.position).addScaledVector(strahl, t);
-  }
-
   let zeigerX = 0;
   let zeigerY = 0;
   if (fein) {
@@ -228,7 +214,7 @@
     return t * t * (3 - 2 * t);
   };
 
-  const ist = { x: 0, y: 0, s: 1, w: 0, rx: 0, ry: 0, zx: 0, zy: 0, ox: 0, oy: 0, dimm: 0, auf: 0, zeichen: 0, kraft: 0, tempo: 0 };
+  const ist = { x: 0, y: 0, s: 1, w: 0, rx: 0, ry: 0, zx: 0, zy: 0, ox: 0, oy: 0, dimm: 0, auf: 0, zeichen: 0, tempo: 0 };
 
   // Zerfall beim Verlassen des Startbilds, Logo am Ende der Seite. Kurze Seiten behalten das Band
   function verlaufLesen() {
@@ -370,8 +356,6 @@
     const verlauf = verlaufLesen();
     ist.auf += (verlauf.auf - ist.auf) * folgen;
     ist.zeichen += (verlauf.zeichen - ist.zeichen) * folgen * 0.7;
-    const bewegt = performance.now() - zuletztBewegt < 1400;
-    ist.kraft += ((bewegt ? 1 : 0) - ist.kraft) * Math.min(dt * 3, 1);
     ist.tempo += (Math.max(-1, Math.min(1, tempo / 2600)) - ist.tempo) * Math.min(dt * 5, 1);
     band.visible = ist.auf < 0.995;
     band.updateWorldMatrix(true, false);
@@ -381,7 +365,6 @@
     teilchen.uZeichen.value = ist.zeichen;
     teilchen.uZeit.value = sek;
     teilchen.uTempo.value = ist.tempo;
-    teilchen.uZeigerKraft.value = ist.kraft;
     teilchen.uDeckkraft.value = (istHeld ? 1 : 0.7) * (kamera.aspect < 0.8 ? 1 - ist.zeichen * 0.4 : 1);
     kino.uniforms.uZeit.value = sek;
     kino.uniforms.uTempo.value = Math.abs(ist.tempo);
@@ -395,7 +378,6 @@
       kamera.clearViewOffset();
     }
     canvas.style.setProperty("--dimm", ist.dimm.toFixed(3));
-    zeigerInDerWelt(teilchen.uZeiger.value);
 
     if (mitBloom) composer.render();
     else renderer.render(szene, kamera);
