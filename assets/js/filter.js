@@ -30,8 +30,8 @@
     }
 
     const knopfHtml = (wert, beschriftung, menge, gedrueckt) =>
-      `<button type="button" data-filter="${wert}" aria-pressed="${gedrueckt}">` +
-      `${beschriftung}<span class="filter-zahl" aria-hidden="true">${menge}</span>` +
+      `<button type="button" data-filter="${wert}"${wert === "all" ? "" : ` data-typ="${wert}"`} aria-pressed="${gedrueckt}">` +
+      `${beschriftung} <span class="filter-zahl">${menge}</span>` +
       `</button>`;
 
     leiste.innerHTML =

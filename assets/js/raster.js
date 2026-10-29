@@ -9,7 +9,7 @@
   const basis = raster.dataset.basis || ".";
   const limit = raster.dataset.limit ? parseInt(raster.dataset.limit, 10) : null;
 
-  const TYP_LABEL = { ai: "KI", website: "Websites", software: "Software", game: "Spiele", design: "Design" };
+  const TYP_LABEL = { ai: "KI-Werkzeug", website: "Website", software: "Software", game: "Spiel", design: "Design" };
 
   function escapeHtml(text) {
     const div = document.createElement("div");
@@ -50,24 +50,29 @@
       </div>`;
     }
 
-    return `<div class="rahmen">
-      <div class="rahmen__leiste" aria-hidden="true"><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span></div>
-      <div class="projekt-karte__bild-wrap">${bildHtml(p.heroImage, p.heroAlt, p.heroBreitePx, p.heroHoehePx)}</div>
-    </div>`;
+    return `<div class="projekt-karte__bild-wrap">${bildHtml(p.heroImage, p.heroAlt, p.heroBreitePx, p.heroHoehePx)}</div>`;
   }
 
   function karteHtml(p) {
     const label = TYP_LABEL[p.type] || p.type;
+    const technik = (p.technologies || [])
+      .slice(0, 4)
+      .map((t) => `<span class="chip">${escapeHtml(String(t).replace(/\s*\(.*\)\s*$/, ""))}</span>`)
+      .join("");
     return `<a class="projekt-karte einblenden" href="${basis}/work/${p.slug}/index.html" data-typ="${p.type}">
+      <div class="projekt-karte__kopf">
+        <span class="projekt-karte__typ"><span class="punkt" aria-hidden="true"></span>${escapeHtml(label)}</span>
+        <span>${escapeHtml(String(p.year))}</span>
+      </div>
       <div class="projekt-karte__medien">${medienHtml(p)}</div>
       <div class="projekt-karte__zeile">
         <div>
-          <div class="projekt-karte__eyebrow"><span>${escapeHtml(label)}</span><span>${escapeHtml(String(p.year))}</span></div>
           <div class="projekt-karte__titel">${escapeHtml(p.title)}</div>
           <p class="projekt-karte__kurz">${escapeHtml(p.description)}</p>
+          <div class="projekt-karte__technik">${technik}</div>
         </div>
-        <span class="projekt-karte__pfeil"><span class="projekt-karte__pfeil-text">Projekt ansehen</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="aktion projekt-karte__pfeil"><span class="sr-only">Projekt ansehen</span>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
       </div>
     </a>`;

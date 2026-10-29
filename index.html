@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#08090b">
   <title>Joermy — Creative Developer</title>
   <meta name="description" content="Websites, Oberflächen und digitale Werkzeuge — gebaut mit Blick auf Technik und Gestaltung.">
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="assets/css/raster.css">
   <link rel="stylesheet" href="assets/css/komponenten.css">
   <link rel="stylesheet" href="assets/css/bewegung.css">
-  <link rel="stylesheet" href="assets/css/schau.css">
   <noscript>
     <style>
       .vorhang { display: none !important; }
@@ -25,167 +24,166 @@
 
   <div class="vorhang" role="presentation">
     <div class="vorhang__inhalt">
-      <svg class="vorhang__kristall" viewBox="0 0 200 200" aria-hidden="true">
-        <defs>
-          <linearGradient id="vorhang-spektrum" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#ff7a3d"/>
-            <stop offset="0.35" stop-color="#ff3d7f"/>
-            <stop offset="0.68" stop-color="#9b5cff"/>
-            <stop offset="1" stop-color="#38b6ff"/>
-          </linearGradient>
-        </defs>
-        <g class="vorhang__gitter">
-          <ellipse cx="100" cy="100" rx="84" ry="84" pathLength="100"/>
-          <ellipse cx="100" cy="100" rx="84" ry="16" pathLength="100" transform="rotate(0 100 100)"/>
-          <ellipse cx="100" cy="100" rx="84" ry="16" pathLength="100" transform="rotate(36 100 100)"/>
-          <ellipse cx="100" cy="100" rx="84" ry="16" pathLength="100" transform="rotate(72 100 100)"/>
-          <ellipse cx="100" cy="100" rx="84" ry="16" pathLength="100" transform="rotate(108 100 100)"/>
-          <ellipse cx="100" cy="100" rx="84" ry="16" pathLength="100" transform="rotate(144 100 100)"/>
-          <ellipse cx="100" cy="100" rx="84" ry="44" pathLength="100" transform="rotate(18 100 100)"/>
-          <ellipse cx="100" cy="100" rx="84" ry="44" pathLength="100" transform="rotate(90 100 100)"/>
-          <ellipse cx="100" cy="100" rx="84" ry="44" pathLength="100" transform="rotate(162 100 100)"/>
-          <ellipse cx="100" cy="100" rx="58" ry="58" pathLength="100"/>
-        </g>
+      <svg class="vorhang__logo marke__logo" viewBox="0 0 32 32" aria-hidden="true">
+        <path class="marke__huelle" pathLength="100" d="M16 3l11.26 6.5v13L16 29 4.74 22.5v-13z"/>
+        <path class="marke__kern" d="M16 9.5l5.63 3.25v6.5L16 22.5l-5.63-3.25v-6.5z"/>
       </svg>
-      <p class="vorhang__marke" aria-hidden="true">
-        <span class="vorhang__marke-grund">Joermy</span>
-        <span class="vorhang__marke-fuellung">Joermy</span>
-      </p>
-      <p class="vorhang__zeile" aria-hidden="true">
-        <span class="vorhang__label">Portfolio</span>
-        <span class="vorhang__zahl">000</span>
-      </p>
+      <p class="vorhang__marke" aria-hidden="true"><span>Joermy</span> <span>Portfolio</span></p>
+      <div aria-hidden="true">
+        <p class="vorhang__zeile"><span>System startet</span><span class="vorhang__zahl">000 %</span></p>
+        <div class="vorhang__balken"><i></i></div>
+      </div>
     </div>
   </div>
 
-  <div class="flor" aria-hidden="true"></div>
-
   <header class="kopfzeile">
     <div class="breite kopfzeile__inhalt">
-      <a class="marke" href="index.html">Joermy</a>
+      <a class="marke" href="index.html" aria-label="Joermy, zur Startseite">
+        <svg class="marke__logo" viewBox="0 0 32 32" aria-hidden="true"><path class="marke__huelle" d="M16 3l11.26 6.5v13L16 29 4.74 22.5v-13z"/><path class="marke__kern" d="M16 9.5l5.63 3.25v6.5L16 22.5l-5.63-3.25v-6.5z"/></svg>
+        <span class="marke__name">Joermy</span>
+        <span class="marke__zusatz" aria-hidden="true">Creative Developer</span>
+      </a>
       <nav class="hauptnav" aria-label="Hauptnavigation">
         <ul>
-          <li><a href="work/index.html">Arbeiten</a></li>
-          <li><a href="about/index.html">Über mich</a></li>
-          <li><a href="contact/index.html">Kontakt</a></li>
+          <li><a href="work/index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg><span>Arbeiten</span></a></li>
+          <li><a href="about/index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Über mich</span></a></li>
+          <li><a href="contact/index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Kontakt</span></a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="inhalt">
-    <section class="hero breite">
-      <div class="hero__buehne" aria-hidden="true"><span></span><span></span></div>
-      <canvas class="hero__canvas" data-variante="held" aria-hidden="true"></canvas>
-      <img class="hero__still" src="bilder/band-1000.webp" srcset="bilder/band-600.webp 600w, bilder/band-1000.webp 1000w" sizes="(max-width: 860px) 84vw, 54vw" width="1000" height="978" alt="" aria-hidden="true" decoding="async" fetchpriority="high">
+    <section class="leitstand breite" aria-labelledby="titel">
+      <div class="leitstand__mitte">
+        <h1 class="leitstand__titel" id="titel"><svg class="marke__logo" viewBox="0 0 32 32" aria-hidden="true"><path class="marke__huelle" d="M16 3l11.26 6.5v13L16 29 4.74 22.5v-13z"/><path class="marke__kern" d="M16 9.5l5.63 3.25v6.5L16 22.5l-5.63-3.25v-6.5z"/></svg><span class="leitstand__name">Joermy</span> <span class="leitstand__zusatz">Portfolio</span></h1>
+        <p class="meta-zeile" data-meta-zeile data-entschluesseln>11 Projekte · 27 Werkzeuge · 6 Websites</p>
 
-      <p class="plakette"><span class="plakette__punkt" aria-hidden="true"></span>Creative Developer · Peine</p>
-      <h1>
-        <span class="zeile"><span class="zeile__inner">Websites,</span></span>
-        <span class="zeile"><span class="zeile__inner">die etwas</span></span>
-        <span class="zeile"><span class="zeile__inner">auslösen.</span></span>
-      </h1>
-      <p class="hero__lead">Websites, Oberflächen und digitale Werkzeuge — gebaut mit Blick auf Technik und Gestaltung.</p>
+        <div class="filterleiste" id="orbit-filter" role="group" aria-label="Orbit nach Art filtern" hidden></div>
 
-      <div class="hero__aktionen">
-        <a class="knopf" href="work/index.html">Arbeiten ansehen</a>
-        <a class="knopf knopf--ghost" href="about/index.html">Über mich</a>
-      </div>
-
-      <dl class="kennzahlen-leiste">
-        <div><dt>Standort</dt><dd>Peine</dd></div>
-        <div><dt>Projekte</dt><dd data-zaehlziel="11" data-zaehlquelle="projekte">11</dd></div>
-        <div><dt>Websites live</dt><dd>5</dd></div>
-        <div><dt>Frameworks</dt><dd>0</dd></div>
-      </dl>
-
-      <div class="hero__scroll" aria-hidden="true"><span class="hero__scroll-linie"></span>Scrollen</div>
-    </section>
-
-    <section class="statement" aria-label="Haltung">
-      <div class="statement__buehne breite">
-        <span class="statement__licht" aria-hidden="true"></span>
-        <p class="kopf-nummer" data-nummer="—">Haltung</p>
-        <h2 data-woerter data-hervor="Websites Werkzeuge, bedienen aussehen.">Ich baue Websites und Werkzeuge, die sich so gut bedienen lassen, wie sie aussehen.</h2>
-        <div class="statement__fuss" aria-hidden="true">
-          <span class="statement__leiste"><i></i></span>
+        <div class="orbit" id="orbit" data-basis=".">
+          <img class="orbit__still" src="bilder/kern-1000.webp" srcset="bilder/kern-600.webp 600w, bilder/kern-1000.webp 1000w" sizes="(max-width: 760px) 70vw, 460px" width="1000" height="1000" alt="" decoding="async" fetchpriority="high">
+          <canvas class="orbit__kern" data-szene="kern" aria-hidden="true"></canvas>
+          <svg class="orbit__linien" viewBox="0 0 1000 1000" aria-hidden="true">
+            <circle class="orbit__bahn" cx="500" cy="500" r="385"/>
+            <circle class="orbit__bahn orbit__bahn--leise" cx="500" cy="500" r="470"/>
+            <g class="orbit__faeden"></g>
+          </svg>
+          <div class="orbit__knoten" aria-hidden="true"></div>
+          <div class="orbit__info" hidden></div>
         </div>
+        <p class="orbit__hinweis">Innen die Projekte, außen die Werkzeuge. Zeigen, um zu sehen, was zusammengehört.</p>
+      </div>
+
+      <div class="leitstand__links">
+        <section class="panel einblenden" aria-labelledby="profil-titel">
+          <div class="panel__kopf">
+            <h2 class="panel__titel" id="profil-titel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Profil</h2>
+            <p class="panel__meta">Peine</p>
+          </div>
+          <p class="panel__ueberschrift">Websites, die etwas <em>auslösen.</em></p>
+          <p class="panel__text">Websites, Oberflächen und digitale Werkzeuge — gebaut mit Blick auf Technik und Gestaltung.</p>
+          <div class="hero__aktionen">
+            <a class="knopf knopf--voll" href="work/index.html">Arbeiten ansehen</a>
+            <a class="knopf knopf--ghost" href="about/index.html">Über mich</a>
+          </div>
+        </section>
+
+        <section class="panel einblenden" aria-labelledby="status-titel">
+          <div class="panel__kopf">
+            <h2 class="panel__titel" id="status-titel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>Status</h2>
+            <p class="panel__meta">Ortszeit Peine</p>
+          </div>
+          <p class="uhr"><span class="uhr__zeit" data-uhr>--:--:--</span><span class="uhr__datum" data-datum></span></p>
+          <p class="zustand"><span class="punkt" aria-hidden="true"></span>Offen für eine Ausbildung oder Stelle</p>
+        </section>
+
+        <section class="panel einblenden" aria-labelledby="bestand-titel">
+          <div class="panel__kopf">
+            <h2 class="panel__titel" id="bestand-titel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>Bestand</h2>
+            <p class="panel__meta">2026</p>
+          </div>
+          <div class="kennring" data-kennring>
+            <div class="kennring__flaeche">
+              <svg viewBox="0 0 120 120" aria-hidden="true"></svg>
+              <p class="kennring__wert"><strong data-zahl="projekte" data-zaehlen>11</strong><span>Projekte</span></p>
+            </div>
+          </div>
+          <div class="kennband" data-kennband aria-hidden="true"></div>
+          <dl class="kennzahlen" data-kennzahlen>
+            <div data-art><dt><span class="punkt" data-typ="website" aria-hidden="true"></span>Websites</dt><dd>6</dd></div>
+            <div data-art><dt><span class="punkt" data-typ="ai" aria-hidden="true"></span>KI-Werkzeuge</dt><dd>3</dd></div>
+            <div data-art><dt><span class="punkt" data-typ="software" aria-hidden="true"></span>Software</dt><dd>1</dd></div>
+            <div data-art><dt><span class="punkt" data-typ="game" aria-hidden="true"></span>Spiele</dt><dd>1</dd></div>
+            <div><dt>Websites live</dt><dd class="akzent">5</dd></div>
+            <div><dt>Frameworks</dt><dd class="akzent">0</dd></div>
+          </dl>
+        </section>
+      </div>
+
+      <div class="leitstand__rechts">
+        <section class="panel einblenden" aria-labelledby="deck-titel">
+          <div class="panel__kopf">
+            <h2 class="panel__titel" id="deck-titel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Werkzeuge</h2>
+            <p class="panel__meta"><span data-zahl="werkzeuge">27</span> im Einsatz</p>
+          </div>
+          <ul class="deck" id="werkzeug-deck">
+            <li class="deck__karte"><strong>Python</strong><span>10× im Einsatz</span></li>
+            <li class="deck__karte"><strong>JavaScript</strong><span>8× im Einsatz</span></li>
+            <li class="deck__karte"><strong>HTML</strong><span>5× im Einsatz</span></li>
+            <li class="deck__karte"><strong>CSS</strong><span>5× im Einsatz</span></li>
+          </ul>
+        </section>
+
+        <section class="panel einblenden" aria-labelledby="projekte-titel">
+          <div class="panel__kopf">
+            <h2 class="panel__titel" id="projekte-titel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Projekte</h2>
+            <a class="pille" href="work/index.html">Übersicht</a>
+          </div>
+          <ul class="liste liste--rollend" id="projekt-liste">
+            <li><a class="liste__eintrag" href="work/index.html"><span class="punkt" aria-hidden="true"></span><span class="liste__text"><span class="liste__titel">Alle Arbeiten</span><span class="liste__unter">Websites, KI-Werkzeuge, Software, Spiele</span></span><span class="aktion" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg></span></a></li>
+          </ul>
+        </section>
+
+        <section class="panel einblenden" aria-labelledby="kontakt-titel">
+          <div class="panel__kopf">
+            <h2 class="panel__titel" id="kontakt-titel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>Kontakt</h2>
+            <a class="pille" href="contact/index.html">Übersicht</a>
+          </div>
+          <ul class="liste">
+            <li><a class="liste__eintrag" href="mailto:jeremy-geiseler@outlook.com"><span class="punkt" aria-hidden="true"></span><span class="liste__text"><span class="liste__titel">E-Mail</span><span class="liste__unter">jeremy-geiseler@outlook.com</span></span><span class="aktion" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span></a></li>
+            <li><a class="liste__eintrag" href="https://github.com/Joermy" rel="noopener"><span class="punkt" style="--farbe:var(--violett)" aria-hidden="true"></span><span class="liste__text"><span class="liste__titel">GitHub</span><span class="liste__unter">github.com/Joermy</span></span><span class="aktion" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg></span></a></li>
+          </ul>
+        </section>
       </div>
     </section>
 
-    <section class="laufbaender" aria-label="Werkzeuge">
-      <div class="laufband" data-laufband aria-hidden="true">
-        <div class="laufband__spur">
-          <span>HTML <i>✦</i> CSS <i>✦</i> JavaScript <i>✦</i> Three.js <i>✦</i> WebGL <i>✦</i> Blender <i>✦</i> Python <i>✦</i> </span>
-          <span>HTML <i>✦</i> CSS <i>✦</i> JavaScript <i>✦</i> Three.js <i>✦</i> WebGL <i>✦</i> Blender <i>✦</i> Python <i>✦</i> </span>
-          <span>HTML <i>✦</i> CSS <i>✦</i> JavaScript <i>✦</i> Three.js <i>✦</i> WebGL <i>✦</i> Blender <i>✦</i> Python <i>✦</i> </span>
+    <section class="sektion breite" aria-labelledby="haltung-titel">
+      <h2 class="eyebrow einblenden" id="haltung-titel">Haltung</h2>
+      <div class="fenster einblenden" style="margin-top:var(--sp-5)">
+        <div class="fenster__leiste" aria-hidden="true">
+          <span class="fenster__titel">Joermy <span>Gespräch</span></span>
+          <span class="rahmen__punkt"></span><span class="rahmen__punkt"></span><span class="rahmen__punkt"></span>
         </div>
-      </div>
-      <div class="laufband laufband--kontur" data-laufband aria-hidden="true">
-        <div class="laufband__spur">
-          <span>Luau <i>✦</i> Electron <i>✦</i> llama.cpp <i>✦</i> ComfyUI <i>✦</i> Node.js <i>✦</i> Roblox Studio <i>✦</i> </span>
-          <span>Luau <i>✦</i> Electron <i>✦</i> llama.cpp <i>✦</i> ComfyUI <i>✦</i> Node.js <i>✦</i> Roblox Studio <i>✦</i> </span>
-          <span>Luau <i>✦</i> Electron <i>✦</i> llama.cpp <i>✦</i> ComfyUI <i>✦</i> Node.js <i>✦</i> Roblox Studio <i>✦</i> </span>
+        <div class="chat">
+          <p class="blase blase--frage">Was machst du eigentlich?</p>
+          <p class="blase blase--antwort" data-tippen="Websites Werkzeuge bedienen aussehen">Ich baue Websites und Werkzeuge, die sich so gut bedienen lassen, wie sie aussehen.</p>
+          <p class="blase__meta">joermy · Antwort</p>
         </div>
-      </div>
-      <p class="sr-only">Werkzeuge: HTML, CSS, JavaScript, Three.js, WebGL, Blender, Python, Luau, Electron, llama.cpp, ComfyUI, Node.js, Roblox Studio.</p>
-    </section>
-
-    <section class="sektion breite">
-      <p class="kopf-nummer einblenden" data-nummer="01">Was ich mache</p>
-      <h2 class="sektion__titel einblenden" style="margin-bottom:var(--sp-8)">Technik, die man spürt.</h2>
-
-      <div class="bento">
-        <article class="kachel kachel--breit einblenden">
-          <span class="kachel__leuchten" style="background:#9b5cff" aria-hidden="true"></span>
-          <p class="kachel__zahl" aria-hidden="true">0</p>
-          <h3>Frameworks. Kein Baukasten, kein Build-Schritt.</h3>
-          <p>Jede Seite hier ist reines HTML, CSS und JavaScript — selbst umgesetzt, ohne Baukasten. Schriften, Bilder und Three.js liegen selbst gehostet im Repository — beim Laden geht keine Anfrage an fremde Server.</p>
-        </article>
-
-        <article class="kachel einblenden">
-          <span class="kachel__leuchten" style="background:#38b6ff" aria-hidden="true"></span>
-          <span class="kachel__symbol" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>
-          </span>
-          <h3>KI auf der eigenen Grafikkarte.</h3>
-          <p>Lokale Agenten und Werkzeuge. Keine Schlüssel, keine laufenden Kosten, keine Daten außer Haus.</p>
-        </article>
-
-        <article class="kachel einblenden">
-          <span class="kachel__leuchten" style="background:#ff3d7f" aria-hidden="true"></span>
-          <span class="kachel__symbol" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 22V12M21 7l-9 5-9-5"/></svg>
-          </span>
-          <h3>3D aus Blender, live im Browser.</h3>
-          <p>Das Band im Hintergrund ist in Blender modelliert und ändert beim Scrollen seine Form — in Echtzeit über Three.js.</p>
-        </article>
-
-        <article class="kachel einblenden">
-          <span class="kachel__leuchten" style="background:#ff7a3d" aria-hidden="true"></span>
-          <span class="kachel__symbol" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3-6 6-6 9 0s6 6 9 0"/></svg>
-          </span>
-          <h3>Bewegung mit Maß.</h3>
-          <p>Animation, die auf eine Handlung antwortet. Ein Effekt, richtig gemacht, statt zehn nebeneinander.</p>
-        </article>
-
-        <article class="kachel einblenden">
-          <span class="kachel__leuchten" style="background:#9b5cff" aria-hidden="true"></span>
-          <span class="kachel__pegel" aria-hidden="true">
-            <i style="--h:30"></i><i style="--h:62"></i><i style="--h:44"></i><i style="--h:90"></i><i style="--h:58"></i><i style="--h:100"></i><i style="--h:70"></i><i style="--h:40"></i><i style="--h:82"></i><i style="--h:50"></i><i style="--h:26"></i>
-          </span>
-          <h3>Klang aus Code.</h3>
-          <p>Jeder Ton dieser Seite entsteht zur Laufzeit — keine einzige Audiodatei. Standardmäßig aus.</p>
-        </article>
+        <a class="eingabe" href="mailto:jeremy-geiseler@outlook.com">
+          <span class="eingabe__feld">Nachricht an Joermy schreiben …</span>
+          <span class="eingabe__senden" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
       </div>
     </section>
 
-    <section class="sektion breite">
-      <p class="kopf-nummer einblenden" data-nummer="02">Ausgewählte Arbeiten</p>
+    <section class="sektion breite" aria-labelledby="arbeiten-titel">
       <div class="sektion__kopf">
-        <h2 class="sektion__titel einblenden">Gebaut, nicht nur entworfen.</h2>
-        <a class="knopf knopf--ghost" href="work/index.html">Alle Arbeiten</a>
+        <div>
+          <p class="eyebrow einblenden">01 · Ausgewählte Arbeiten</p>
+          <h2 class="sektion__titel einblenden" id="arbeiten-titel">Gebaut, nicht nur entworfen.</h2>
+        </div>
+        <a class="knopf knopf--ghost" href="work/index.html">Alle Arbeiten <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg></a>
       </div>
 
       <p class="lade-hinweis" id="lade-hinweis" hidden>
@@ -211,36 +209,98 @@
 </ul></noscript>
     </section>
 
-    <section class="abschluss breite">
-      <h2 class="einblenden">Bereit für den nächsten Schritt.</h2>
-      <p class="einblenden">Ich suche eine Ausbildung oder Stelle, in der ich weiter an Websites, Oberflächen und lokalen KI-Werkzeugen arbeiten kann.</p>
-      <div class="hero__aktionen einblenden">
-        <a class="knopf" href="mailto:jeremy-geiseler@outlook.com">E-Mail schreiben</a>
-        <a class="knopf knopf--ghost" href="https://github.com/Joermy" rel="noopener">GitHub</a>
+    <section class="sektion breite" aria-labelledby="koennen-titel">
+      <p class="eyebrow einblenden">02 · Was ich mache</p>
+      <h2 class="sektion__titel einblenden" id="koennen-titel" style="margin-bottom:var(--sp-6)">Technik, die man spürt.</h2>
+
+      <div class="bento">
+        <article class="panel kachel kachel--breit einblenden">
+          <p class="kachel__zahl" aria-hidden="true">0</p>
+          <h3>Frameworks. Kein Baukasten, kein Build-Schritt.</h3>
+          <p>Jede Seite hier ist reines HTML, CSS und JavaScript — selbst umgesetzt, ohne Baukasten. Schriften, Bilder, Modelle und Three.js liegen selbst gehostet im Repository — beim Laden geht keine Anfrage an fremde Server.</p>
+        </article>
+
+        <article class="panel kachel einblenden">
+          <span class="kachel__symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span>
+          <h3>KI auf der eigenen Grafikkarte.</h3>
+          <p>Lokale Agenten und Werkzeuge. Keine Schlüssel, keine laufenden Kosten, keine Daten außer Haus.</p>
+        </article>
+
+        <article class="panel kachel einblenden">
+          <span class="kachel__symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 22V12M21 7l-9 5-9-5"/></svg></span>
+          <h3>3D aus Blender, live im Browser.</h3>
+          <p>Der Kern oben und das Logo auf den Unterseiten entstehen per Skript in Blender und laufen in Echtzeit über Three.js.</p>
+        </article>
+
+        <article class="panel kachel einblenden">
+          <span class="kachel__symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12c3-6 6-6 9 0s6 6 9 0"/></svg></span>
+          <h3>Bewegung mit Maß.</h3>
+          <p>Animation, die auf eine Handlung antwortet. Ein Effekt, richtig gemacht, statt zehn nebeneinander.</p>
+        </article>
+
+        <article class="panel kachel einblenden">
+          <span class="kachel__pegel" aria-hidden="true">
+            <i style="--h:30"></i><i style="--h:62"></i><i style="--h:44"></i><i style="--h:90"></i><i style="--h:58"></i><i style="--h:100"></i><i style="--h:70"></i><i style="--h:40"></i><i style="--h:82"></i><i style="--h:50"></i><i style="--h:26"></i>
+          </span>
+          <h3>Klang aus Code.</h3>
+          <p>Jeder Ton dieser Seite entsteht zur Laufzeit — keine einzige Audiodatei. Standardmäßig aus.</p>
+        </article>
+
+        <article class="panel kachel kachel--voll einblenden">
+          <div class="panel__kopf">
+            <h3 class="panel__titel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Werkzeuge</h3>
+            <p class="panel__meta">Alltag</p>
+          </div>
+          <div class="chip-gruppe">
+            <span class="chip" style="--farbe:var(--blau)">HTML</span><span class="chip" style="--farbe:var(--blau)">CSS</span><span class="chip" style="--farbe:var(--blau)">JavaScript</span>
+            <span class="chip" style="--farbe:var(--violett)">Three.js</span><span class="chip" style="--farbe:var(--violett)">WebGL</span><span class="chip" style="--farbe:var(--violett)">Blender</span>
+            <span class="chip" style="--farbe:var(--bernstein)">Python</span><span class="chip" style="--farbe:var(--bernstein)">Node.js</span><span class="chip" style="--farbe:var(--bernstein)">Electron</span>
+            <span class="chip" style="--farbe:var(--akzent)">llama.cpp</span><span class="chip" style="--farbe:var(--akzent)">ComfyUI</span>
+            <span class="chip" style="--farbe:var(--pink)">Luau</span><span class="chip" style="--farbe:var(--pink)">Roblox Studio</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="abschluss breite" aria-labelledby="abschluss-titel">
+      <div class="panel abschluss__panel einblenden">
+        <div>
+          <p class="eyebrow">Nächster Schritt</p>
+          <h2 id="abschluss-titel" style="margin-top:var(--sp-4)">Bereit für den nächsten Schritt.</h2>
+          <p>Ich suche eine Ausbildung oder Stelle, in der ich weiter an Websites, Oberflächen und lokalen KI-Werkzeugen arbeiten kann.</p>
+          <div class="hero__aktionen">
+            <a class="knopf knopf--voll" href="mailto:jeremy-geiseler@outlook.com">E-Mail schreiben</a>
+            <a class="knopf knopf--ghost" href="https://github.com/Joermy" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="abschluss__logo" aria-hidden="true">
+          <svg class="marke__logo" viewBox="0 0 32 32"><path class="marke__huelle" d="M16 3l11.26 6.5v13L16 29 4.74 22.5v-13z"/><path class="marke__kern" d="M16 9.5l5.63 3.25v6.5L16 22.5l-5.63-3.25v-6.5z"/></svg>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="fusszeile">
     <div class="breite fusszeile__inhalt">
-      <p>Joermy — © 2026</p>
+      <p class="fusszeile__marke"><svg class="marke__logo" viewBox="0 0 32 32" aria-hidden="true"><path class="marke__huelle" d="M16 3l11.26 6.5v13L16 29 4.74 22.5v-13z"/><path class="marke__kern" d="M16 9.5l5.63 3.25v6.5L16 22.5l-5.63-3.25v-6.5z"/></svg>Joermy — © 2026</p>
       <ul>
         <li><a href="https://github.com/Joermy" rel="noopener">GitHub</a></li>
         <li><a href="mailto:jeremy-geiseler@outlook.com">E-Mail</a></li>
         <li><a href="impressum/index.html">Impressum</a></li>
         <li><a href="datenschutz/index.html">Datenschutz</a></li>
       </ul>
+      <p class="fusszeile__stand">Statisches HTML, CSS und JavaScript · kein Framework · kein Tracking · 3D-Modelle aus Blender</p>
     </div>
   </footer>
 
   <script src="daten/projekte.js" defer></script>
   <script src="assets/js/raster.js" defer></script>
-  <script src="assets/js/filter.js" defer></script>
+  <script src="assets/js/leitstand.js" defer></script>
   <script src="assets/js/bewegung.js" defer></script>
   <script src="assets/js/interaktion.js" defer></script>
   <script src="assets/js/schau.js" defer></script>
   <script src="assets/js/klang.js" defer></script>
   <script type="module" src="assets/js/weich.js"></script>
-  <script type="module" src="assets/js/hintergrund.js"></script>
+  <script type="module" src="assets/js/szene.js"></script>
 </body>
 </html>
