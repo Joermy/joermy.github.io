@@ -51,23 +51,49 @@ Was sich daraus für diese Seite ableitet:
   geändert werden nur die Farben der Leuchtflächen, die sich im Band spiegeln.
 - **Ein Objekt, kein Effekt-Sammelsurium.** „3D um des 3D willen“ schadet; ein starkes Objekt mit
   viel Freiraum trägt.
+- **Feine Linien, wenig Deckkraft.** Rahmen und Linien wirken ruhig bei 1 px und geringer Deckkraft;
+  ein einziger Markenakzent statt mehrerer Farben, eher dezent als glänzend.
 
-## Umsetzung
+## Umsetzung: Logo, Farben, Klarheit
 
-Was sich ändert, und nur das:
+Grundsatz: Aus dem Agentic OS wird **kein Element und keine Funktion** übernommen. Keine Status-Punkte,
+Fensterleisten, Raster, Eck-Leuchten, Uhren oder Panels. Die Funktionen gibt es im OS schon,
+das Portfolio braucht sie nicht doppelt. Übernommen wird nur, wie das OS aussieht.
 
-| Element | vorher | jetzt |
+**Logo.** Das Logo ist Hex-Zeichen plus Schriftzug JOERMY in Großbuchstaben, wie im OS. Es steht
+gleich in Kopfzeile, Plakette, Favicon und im Startvorhang, der jetzt das Hex-Zeichen Kante für Kante
+zeichnet statt des alten Kristalls.
+
+**Farben.** Die Palette des OS, Werte in `assets/css/basis.css`:
+
+| Rolle | vorher | jetzt |
 | --- | --- | --- |
-| Logo in Kopfzeile, Plakette, Favicon | bunter Kreis | Sechseck-Logo des OS in Teal |
+| Grund `--bg` | `#000000` | `#08090B` |
+| Fläche `--surface` | `#0B0B0D` | `#0E1013` |
+| Fläche 2 `--surface-2` | `#141417` | `#13161A` |
+| Linie `--border` | Weiß 9 % | Weiß 7,5 % |
+| Text `--text` | `#F5F5F7` | `#E8EAEE` |
+| Text leise `--muted` | `#A1A1A6` | `#9A9DA4` |
+| Beschriftung `--leise` | `#6E6E73` | `#7B7E85` |
 | Akzent `--accent` | Pink `#FF4F7B` | Teal `#06D6A0` |
-| Verlauf `--spektrum` | Orange → Pink → Violett → Blau | Teal → Türkis → Blau |
-| Leuchtflächen der 3D-Szene | Pink, Blau, Weiß, Orange, Violett | Teal, Blau, Weiß, Bernstein, Teal |
-| Glühen der Kacheln und im Startbild | Violett, Pink | Teal, Blau, Bernstein |
-| Vorhang beim Start | Kristall im Regenbogen-Verlauf | derselbe Kristall im Teal-Verlauf |
-| Standbild des Bands | alte Spiegelungen | neu gerendert mit dem neuen Licht |
+| Verlauf `--spektrum` | Orange bis Blau | Teal, fast einfarbig |
+| Spiegelungen im Band | Pink, Blau, Orange, Violett | Teal, Blau, Weiß, Bernstein |
 
-Was bleibt: Layout, Texte, Schrift, weiße Knöpfe, das Chromband und sein Verhalten beim Scrollen,
-Wischen und auf dem Telefon, Laufbänder, Kacheln, Karten, Zeiger, Klang, alle Unterseiten.
+Teal ist der einzige Akzent und bleibt selten: Logo, das Wort „auslösen.“, Zahlen, Unterstreichung
+der Navigation, Auswahl und Fokus. Knöpfe bleiben hell, nicht teal.
+
+**Klarheit.** Das Layout bleibt, es wird ruhiger:
+
+- Überschriften einfarbig statt Weiß-Grau-Verlauf
+- Karten, Kacheln, Plakette und Kennzahlen als flache Flächen mit feiner Linie statt Verlauf und Milchglas
+- farbiges Glühen stark zurückgenommen: Lichtflecken im Startbild, in den Kacheln, im Abschluss
+  und bei Bildrahmen; was bleibt, ist leise und einheitlich Teal
+- Rundungen einheitlich: 16 px für Flächen, 10 px für Knöpfe; Knöpfe als klare Rechtecke statt Pillen,
+  Filter und Plakette bleiben Pillen
+- die 3D-Szene mischt sich per `mix-blend-mode: screen` in den fast schwarzen Grund
+
+Was bleibt: Layout, Texte, Schrift, Chromband und sein Verhalten, Haltung, Laufbänder, Kacheln,
+Karten, Zeiger, Klang, alle Unterseiten.
 
 ## 3D und Blender
 

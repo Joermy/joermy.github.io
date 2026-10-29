@@ -8,14 +8,14 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(0, 0, 0, 0.42);
+  background: rgba(8, 9, 11, 0.6);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid transparent;
 }
 
 .kopfzeile.blur {
-  background: rgba(10, 10, 12, 0.72);
+  background: rgba(10, 12, 14, 0.86);
   border-bottom-color: var(--border);
 }
 
@@ -35,7 +35,8 @@
   font-weight: 700;
   color: var(--text);
   text-decoration: none;
-  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .marke::before {
@@ -72,8 +73,17 @@
   .hauptnav a { font-size: 0.8125rem; white-space: nowrap; }
 }
 
+@media (max-width: 374px) {
+  .klang-schalter { display: none !important; }
+}
+
 @media (max-width: 420px) {
-  .marke::before { display: none; }
+  .marke::before { width: 18px; height: 18px; }
+  .marke { gap: 8px; font-size: 0.9375rem; letter-spacing: 0.02em; }
+  .kopfzeile__inhalt { gap: 10px; }
+  .hauptnav ul { gap: 12px; }
+  .hauptnav a { font-size: 0.78rem; }
+  .klang-schalter { padding: 5px 8px !important; }
   .klang-schalter { margin-left: 8px !important; }
 }
 
@@ -108,7 +118,7 @@
   left: 74%;
   transform: translate(-50%, -50%);
   background: #06d6a0;
-  opacity: 0.12;
+  opacity: 0.07;
 }
 
 .hero__buehne span:nth-child(2) {
@@ -117,8 +127,8 @@
   top: 60%;
   left: 62%;
   transform: translate(-50%, -50%);
-  background: #4cb6e3;
-  opacity: 0.1;
+  background: #06d6a0;
+  opacity: 0.04;
 }
 
 .glueh-feld {
@@ -131,8 +141,7 @@
   inset: -15% 0;
   z-index: -1;
   background:
-    radial-gradient(480px circle at 18% 15%, rgba(6, 214, 160, 0.11), transparent 65%),
-    radial-gradient(420px circle at 85% 60%, rgba(76, 182, 227, 0.09), transparent 65%);
+    radial-gradient(380px circle at 30% 42%, rgba(6, 214, 160, 0.05), transparent 70%);
   filter: blur(20px);
   pointer-events: none;
 }
@@ -157,7 +166,7 @@
   height: auto;
   transform: translateY(-50%);
   pointer-events: none;
-  filter: drop-shadow(0 40px 80px rgba(6, 214, 160, 0.18));
+  filter: drop-shadow(0 40px 80px rgba(6, 214, 160, 0.1));
 }
 
 html.szene-laeuft .hero__still {
@@ -245,8 +254,7 @@ html.szene-laeuft .hero__still {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(520px circle at calc(8% + var(--fortschritt, 0) * 70%) 46%, rgba(6, 214, 160, 0.18), transparent 62%),
-    radial-gradient(420px circle at calc(18% + var(--fortschritt, 0) * 62%) 62%, rgba(76, 182, 227, 0.12), transparent 60%);
+    radial-gradient(520px circle at calc(8% + var(--fortschritt, 0) * 70%) 46%, rgba(6, 214, 160, 0.1), transparent 62%);
 }
 
 .statement h2 {
@@ -380,7 +388,7 @@ html.szene-laeuft .hero__still {
   transform: translate(-50%, -50%);
   background: var(--spektrum);
   filter: blur(120px);
-  opacity: 0.22;
+  opacity: 0.09;
   z-index: -1;
   border-radius: 50%;
 }
