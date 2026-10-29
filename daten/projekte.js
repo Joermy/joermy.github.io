@@ -290,7 +290,7 @@ window.PROJEKTE = [
     description:
       "Diese Website selbst: reines HTML, CSS und JavaScript, ohne Framework und ohne Build-Schritt, mit einer eigenen 3D-Szene im Hero.",
     overview:
-      "Statische Mehrseiten-Website mit eigenem Datensystem für Projekte, selbst gehosteten Schriften, einer eigenen WebGL-Szene mit einem in Blender modellierten Chromband, das beim Scrollen seine Form ändert — kein Baukasten, kein CMS, kein CDN.",
+      "Statische Mehrseiten-Website mit eigenem Datensystem für Projekte, selbst gehosteten Schriften, einer eigenen WebGL-Szene mit einem in Blender modellierten Chromband, das beim Scrollen in Partikel zerfällt und sich am Ende zum Logo sammelt — kein Baukasten, kein CMS, kein CDN.",
     problem:
       "Ein Portfolio sollte beweisen, was es behauptet: dass echter Code dahintersteckt, nicht ein Vorlagen-Baukasten.",
     idea:
@@ -304,7 +304,7 @@ window.PROJEKTE = [
     heroImage: "bilder/portfolio-website/hero",
     heroBreitePx: 1600,
     heroHoehePx: 1000,
-    heroAlt: "Startseite dieses Portfolios: schwarzer Grund, Überschrift Websites, die etwas auslösen, rechts ein schimmerndes 3D-Chromband",
+    heroAlt: "Startseite dieses Portfolios: fast schwarzer Grund, Überschrift Websites, die etwas auslösen, das letzte Wort in Teal, rechts ein schimmerndes 3D-Chromband",
     galerie: []
   }
 ];
