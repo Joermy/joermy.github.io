@@ -95,6 +95,28 @@ der Navigation, Auswahl und Fokus. Knöpfe bleiben hell, nicht teal.
 Was bleibt: Layout, Texte, Schrift, Chromband und sein Verhalten, Haltung, Laufbänder, Kacheln,
 Karten, Zeiger, Klang, alle Unterseiten.
 
+## 3D-Hintergrund
+
+Vorbild sind Seiten wie Igloo Inc (Abeto) oder Lusion: nicht ein Objekt, das sich dreht, sondern eine
+Szene, die sich mit dem Scrollen verwandelt. Umgesetzt in `assets/js/partikel.js`, eingebunden in
+`assets/js/hintergrund.js`:
+
+1. **Zerfall.** Beim Verlassen des Startbilds brennt das Chromband weg. Ein Rauschfeld entscheidet,
+   welche Stelle wann verschwindet; am Rand glüht das Band in Teal.
+2. **Partikel.** Bis zu 65.536 Punkte, verteilt nach Fläche auf der Oberfläche des Blender-Modells.
+   Jeder Punkt löst sich genau dann, wenn das Band an seiner Stelle zerfällt, denn Band und Punkte
+   rechnen mit demselben Rauschen. Ein Sechstel ist von Anfang an Sternenstaub.
+3. **Galaxie.** Die Punkte strömen in einen Wirbel mit drei Armen, der sich innen schneller dreht als außen.
+4. **Logo.** Am Ende der Seite sammeln sie sich zum Sechseck-Rahmen: auf der Startseite um den
+   Abschluss-Text, auf Unterseiten kleiner rechts neben dem Inhalt.
+5. **Interaktion.** Punkte weichen dem Zeiger aus, schnelles Scrollen zieht sie mit.
+6. **Kino-Finish.** Farbtrennung, die mit dem Scrolltempo wächst, dazu Vignette und feines Filmkorn.
+
+Technik: Alles läuft im Vertex-Shader ohne Simulationspuffer, also auch mit WebGL 1 und auf
+schwachen Telefonen. Anzahl nach Gerät (65.536, 32.768, 12.288); fällt die Bildrate, senkt ein
+Wächter erst die Auflösung, dann das Glühen, dann die Zahl der Punkte. Kurze Seiten wie Kontakt
+behalten das Band. Bei reduzierter Bewegung steht die Szene still und folgt nur dem Scrollen.
+
 ## 3D und Blender
 
 Das Band (`assets/modelle/band.glb`) bleibt das Modell. Blender rendert per Skript das Standbild,

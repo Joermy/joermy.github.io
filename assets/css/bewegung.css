@@ -96,7 +96,7 @@
   }
 
   .hero__canvas.ist-bereit {
-    opacity: calc((1 - var(--scroll, 0) * 0.55) * (1 - var(--dimm, 0) * 0.62));
+    opacity: calc((1 - var(--scroll, 0) * 0.15) * (1 - var(--dimm, 0) * 0.62));
   }
 
   .hero h1,

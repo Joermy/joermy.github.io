@@ -3,7 +3,8 @@
 Statische Portfolio-Website. HTML, CSS und JavaScript, kein Framework, kein Build-Schritt.
 Bibliotheken sind Three.js für die 3D-Szene und Lenis für weiches Scrollen, beide selbst
 gehostet. Im Hintergrund liegt ein in Blender modelliertes Chromband
-(`assets/modelle/band.glb`), das beim Scrollen seine Form ändert.
+(`assets/modelle/band.glb`). Beim Scrollen zerfällt es in bis zu 65.536 Partikel, die als Galaxie
+weiterströmen und sich am Ende zum Hex-Logo sammeln (`assets/js/partikel.js`, Details in `DESIGN.md`).
 
 ## Auf dem Telefon
 

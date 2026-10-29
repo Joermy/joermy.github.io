@@ -378,7 +378,7 @@ html.js-bewegung .projekt-karte.ist-sichtbar .projekt-karte__medien {
 }
 
 .hero__canvas.ist-bereit {
-  opacity: calc((1 - var(--scroll, 0) * 0.6) * (1 - var(--dimm, 0) * 0.62));
+  opacity: calc((1 - var(--scroll, 0) * 0.15) * (1 - var(--dimm, 0) * 0.62));
 }
 
 .filter-zahl {
