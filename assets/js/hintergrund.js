@@ -8,6 +8,7 @@
   const istHeld = canvas.dataset.variante !== "feld";
   const platzhalter = istHeld ? document.querySelector(".hero__still") : null;
   const raster = document.getElementById("work-grid");
+  const abschluss = istHeld ? document.querySelector(".abschluss") : null;
   const heldBereich = document.querySelector(".hero");
 
   const kerne = navigator.hardwareConcurrency || 4;
@@ -152,9 +153,6 @@
     if (!istHeld) {
       teilchen.uZeichenGroesse.value = schmal ? halbB * 0.32 : halbH * 0.42;
       teilchen.uZeichenOrt.value.set(schmal ? halbB * 0.55 : halbB * 0.62, schmal ? halbH * 0.62 : 0, 0);
-    } else {
-      teilchen.uZeichenGroesse.value = schmal ? Math.min(halbH * 0.8, halbB * 1.15) : Math.min(halbH * 0.8, halbB * 0.78);
-      teilchen.uZeichenOrt.value.set(0, halbH * (schmal ? 0.19 : 0.06), 0);
     }
   }
   groesseAnpassen(true);
@@ -310,6 +308,24 @@
     };
   }
 
+  // Der Hex-Rahmen sitzt um den Abschluss-Text und läuft beim Scrollen mit ihm
+  function abschlussRahmen() {
+    if (!abschluss || !abschluss.firstElementChild) return;
+    const oben = abschluss.firstElementChild.getBoundingClientRect();
+    const unten = abschluss.lastElementChild.getBoundingClientRect();
+    const vh = Math.max(window.innerHeight, 1);
+    const vb = Math.max(window.innerWidth, 1);
+    const halbH = kamera.position.z * Math.tan(THREE.MathUtils.degToRad(kamera.fov / 2));
+    const halbB = halbH * kamera.aspect;
+    const mitteY = (oben.top + unten.bottom) / 2;
+    const textH = ((unten.bottom - oben.top) / vh) * 2 * halbH;
+    const textB = (Math.min(oben.width, vb * 0.9) / vb) * 2 * halbB;
+    const schmal = kamera.aspect < 0.8;
+    const groesse = schmal ? Math.min(halbH * 0.8, halbB * 1.15) : Math.min(halbH * 0.85, Math.max(textH * 0.75, (textB * 0.62) / 0.866));
+    teilchen.uZeichenGroesse.value = groesse;
+    teilchen.uZeichenOrt.value.set(0, (1 - (2 * mitteY) / vh) * halbH, 0);
+  }
+
   function dimmenLesen() {
     if (!raster) return 0;
     const r = raster.getBoundingClientRect();
@@ -332,6 +348,7 @@
   });
 
   function bild(sek, folgen, dt) {
+    if (istHeld) abschlussRahmen();
     const z = ziele(sek);
     for (const k of ["x", "y", "s", "w", "rx", "ry", "ox", "oy"]) ist[k] += (z[k] - ist[k]) * folgen;
     ist.zx += (zeigerX - ist.zx) * 0.05;
