@@ -8,21 +8,24 @@
   const istHeld = canvas.dataset.variante !== "feld";
   const platzhalter = istHeld ? document.querySelector(".hero__still") : null;
   const raster = document.getElementById("work-grid");
+  const abschluss = istHeld ? document.querySelector(".abschluss") : null;
   const heldBereich = document.querySelector(".hero");
 
   const kerne = navigator.hardwareConcurrency || 4;
   const speicher = navigator.deviceMemory || 4;
   let stufe = fein ? 3 : speicher <= 2 || kerne <= 2 ? 1 : 2;
 
-  let THREE, GLTFLoader, EffectComposer, RenderPass, UnrealBloomPass, OutputPass;
+  let THREE, GLTFLoader, EffectComposer, RenderPass, UnrealBloomPass, OutputPass, ShaderPass, partikel;
   try {
-    [THREE, { GLTFLoader }, { EffectComposer }, { RenderPass }, { UnrealBloomPass }, { OutputPass }] = await Promise.all([
+    [THREE, { GLTFLoader }, { EffectComposer }, { RenderPass }, { UnrealBloomPass }, { OutputPass }, { ShaderPass }, partikel] = await Promise.all([
       import("./vendor/three.module.min.js"),
       import("./vendor/GLTFLoader.min.js"),
       import("./vendor/EffectComposer.min.js"),
       import("./vendor/RenderPass.min.js"),
       import("./vendor/UnrealBloomPass.min.js"),
       import("./vendor/OutputPass.min.js"),
+      import("./vendor/ShaderPass.min.js"),
+      import("./partikel.js"),
     ]);
   } catch (fehler) {
     return;
@@ -47,11 +50,11 @@
     const raum = new THREE.Scene();
     raum.background = new THREE.Color(0x010102);
     const flaechen = [
-      { farbe: 0xff3d7f, staerke: 3.2, pos: [-4.5, 0.6, 1.5], groesse: [1.4, 7] },
-      { farbe: 0x38b6ff, staerke: 3.0, pos: [4.5, -0.2, 1.2], groesse: [1.4, 7] },
+      { farbe: 0x06d6a0, staerke: 3.2, pos: [-4.5, 0.6, 1.5], groesse: [1.4, 7] },
+      { farbe: 0x4cb6e3, staerke: 2.8, pos: [4.5, -0.2, 1.2], groesse: [1.4, 7] },
       { farbe: 0xffffff, staerke: 4.0, pos: [0, 4.6, 1.5], groesse: [7, 1.1] },
-      { farbe: 0xff7a3d, staerke: 2.4, pos: [0, -4.2, -2.5], groesse: [6, 1.6] },
-      { farbe: 0x9b5cff, staerke: 2.2, pos: [0, 0.5, -5], groesse: [4, 4] },
+      { farbe: 0xf0b45a, staerke: 1.6, pos: [0, -4.2, -2.5], groesse: [6, 1.6] },
+      { farbe: 0x06d6a0, staerke: 2.0, pos: [0, 0.5, -5], groesse: [4, 4] },
     ];
     flaechen.forEach((f) => {
       const farbe = new THREE.Color(f.farbe).multiplyScalar(f.staerke);
@@ -103,12 +106,20 @@
 
   const hatWelle = Array.isArray(band.morphTargetInfluences) && band.morphTargetInfluences.length > 0;
 
+  // Partikel aus der Oberfläche des Bands: so viele, wie das Gerät trägt
+  const anzahl = stufe >= 3 ? 65536 : stufe === 2 ? 32768 : 12288;
+  const { punkte, uniforms: teilchen } = partikel.partikelBauen(THREE, { geometrie: band.geometry, anzahl, rauschSkala: 2.6 / radius });
+  partikel.zerfallAnbringen(material, teilchen);
+  szene.add(punkte);
+
   const ziel = new THREE.WebGLRenderTarget(4, 4, { type: THREE.HalfFloatType, samples: renderer.capabilities.isWebGL2 ? (stufe >= 2 ? 4 : 2) : 0 });
   const composer = new EffectComposer(renderer, ziel);
   composer.addPass(new RenderPass(szene, kamera));
   const bloom = new UnrealBloomPass(new THREE.Vector2(4, 4), 0.32, 0.65, 0.78);
   composer.addPass(bloom);
   composer.addPass(new OutputPass());
+  const kino = new ShaderPass(partikel.kinoShader(THREE));
+  composer.addPass(kino);
   let mitBloom = stufe >= 2;
 
   const sonde = document.createElement("div");
@@ -130,8 +141,19 @@
     composer.setPixelRatio(dichte);
     composer.setSize(b, h);
     bloom.resolution.set(b * dichte * 0.5, h * dichte * 0.5);
+    kino.uniforms.uAufloesung.value.set(b * dichte, h * dichte);
     kamera.aspect = b / h;
     kamera.updateProjectionMatrix();
+    teilchen.uSkala.value = (h * dichte) / (2 * Math.tan(THREE.MathUtils.degToRad(kamera.fov / 2)));
+    const halbH = kamera.position.z * Math.tan(THREE.MathUtils.degToRad(kamera.fov / 2));
+    // Startseite breit: Rahmen um den Abschluss-Text. Schmal: an den Bildschirmrändern entlang.
+    // Unterseiten: kleiner rechts, als Abschluss neben dem Inhalt
+    const schmal = kamera.aspect < 0.8;
+    const halbB = halbH * kamera.aspect;
+    if (!istHeld) {
+      teilchen.uZeichenGroesse.value = schmal ? halbB * 0.32 : halbH * 0.42;
+      teilchen.uZeichenOrt.value.set(schmal ? halbB * 0.55 : halbB * 0.62, schmal ? halbH * 0.62 : 0, 0);
+    }
   }
   groesseAnpassen(true);
   window.addEventListener("resize", () => groesseAnpassen(), { passive: true });
@@ -149,6 +171,20 @@
   scrollLesen();
   window.addEventListener("scroll", scrollLesen, { passive: true });
   window.addEventListener("resize", scrollLesen, { passive: true });
+
+  // Zeiger in Bildschirmkoordinaten für die Partikel; auch Wischen auf dem Telefon zählt
+  const zeigerNdc = new THREE.Vector2(9, 9);
+  let zuletztBewegt = -1e9;
+  window.addEventListener("pointermove", (ev) => {
+    zeigerNdc.set((ev.clientX / window.innerWidth) * 2 - 1, -(ev.clientY / window.innerHeight) * 2 + 1);
+    zuletztBewegt = performance.now();
+  }, { passive: true });
+  const strahl = new THREE.Vector3();
+  function zeigerInDerWelt(ziel) {
+    strahl.set(zeigerNdc.x, zeigerNdc.y, 0.5).unproject(kamera).sub(kamera.position).normalize();
+    const t = -kamera.position.z / (strahl.z || -1);
+    ziel.copy(kamera.position).addScaledVector(strahl, t);
+  }
 
   let zeigerX = 0;
   let zeigerY = 0;
@@ -192,7 +228,19 @@
     return t * t * (3 - 2 * t);
   };
 
-  const ist = { x: 0, y: 0, s: 1, w: 0, rx: 0, ry: 0, zx: 0, zy: 0, ox: 0, oy: 0, dimm: 0 };
+  const ist = { x: 0, y: 0, s: 1, w: 0, rx: 0, ry: 0, zx: 0, zy: 0, ox: 0, oy: 0, dimm: 0, auf: 0, zeichen: 0, kraft: 0, tempo: 0 };
+
+  // Zerfall beim Verlassen des Startbilds, Logo am Ende der Seite. Kurze Seiten behalten das Band
+  function verlaufLesen() {
+    const vh = Math.max(window.innerHeight, 1);
+    const lang = document.documentElement.scrollHeight - vh > vh * 1.5;
+    const gescrollt = window.scrollY / vh;
+    if (!lang) return { auf: 0, zeichen: 0 };
+    return {
+      auf: istHeld ? weich(0.35, 1.7, gescrollt) : weich(0.3, 1.5, gescrollt),
+      zeichen: weich(0.86, 0.985, seite),
+    };
+  }
 
   function ankerHochformat() {
     if (!platzhalter) return null;
@@ -260,6 +308,24 @@
     };
   }
 
+  // Der Hex-Rahmen sitzt um den Abschluss-Text und läuft beim Scrollen mit ihm
+  function abschlussRahmen() {
+    if (!abschluss || !abschluss.firstElementChild) return;
+    const oben = abschluss.firstElementChild.getBoundingClientRect();
+    const unten = abschluss.lastElementChild.getBoundingClientRect();
+    const vh = Math.max(window.innerHeight, 1);
+    const vb = Math.max(window.innerWidth, 1);
+    const halbH = kamera.position.z * Math.tan(THREE.MathUtils.degToRad(kamera.fov / 2));
+    const halbB = halbH * kamera.aspect;
+    const mitteY = (oben.top + unten.bottom) / 2;
+    const textH = ((unten.bottom - oben.top) / vh) * 2 * halbH;
+    const textB = (Math.min(oben.width, vb * 0.9) / vb) * 2 * halbB;
+    const schmal = kamera.aspect < 0.8;
+    const groesse = schmal ? Math.min(halbH * 0.8, halbB * 1.15) : Math.min(halbH * 0.85, Math.max(textH * 0.75, (textB * 0.62) / 0.866));
+    teilchen.uZeichenGroesse.value = groesse;
+    teilchen.uZeichenOrt.value.set(0, (1 - (2 * mitteY) / vh) * halbH, 0);
+  }
+
   function dimmenLesen() {
     if (!raster) return 0;
     const r = raster.getBoundingClientRect();
@@ -282,6 +348,7 @@
   });
 
   function bild(sek, folgen, dt) {
+    if (istHeld) abschlussRahmen();
     const z = ziele(sek);
     for (const k of ["x", "y", "s", "w", "rx", "ry", "ox", "oy"]) ist[k] += (z[k] - ist[k]) * folgen;
     ist.zx += (zeigerX - ist.zx) * 0.05;
@@ -297,7 +364,27 @@
     halter.position.set(ist.x, ist.y, 0);
     halter.scale.setScalar(ist.s);
     halter.rotation.set(ist.rx + ist.zy * 0.5 + zugX, ist.ry + ist.zx * 0.7 + zugY, 0.22);
-    if (hatWelle) band.morphTargetInfluences[0] = Math.max(0, Math.min(ist.w, 1));
+    const welle = Math.max(0, Math.min(ist.w, 1));
+    if (hatWelle) band.morphTargetInfluences[0] = welle;
+
+    const verlauf = verlaufLesen();
+    ist.auf += (verlauf.auf - ist.auf) * folgen;
+    ist.zeichen += (verlauf.zeichen - ist.zeichen) * folgen * 0.7;
+    const bewegt = performance.now() - zuletztBewegt < 1400;
+    ist.kraft += ((bewegt ? 1 : 0) - ist.kraft) * Math.min(dt * 3, 1);
+    ist.tempo += (Math.max(-1, Math.min(1, tempo / 2600)) - ist.tempo) * Math.min(dt * 5, 1);
+    band.visible = ist.auf < 0.995;
+    band.updateWorldMatrix(true, false);
+    teilchen.uBand.value.copy(band.matrixWorld);
+    teilchen.uWelle.value = hatWelle ? welle : 0;
+    teilchen.uAuf.value = ist.auf;
+    teilchen.uZeichen.value = ist.zeichen;
+    teilchen.uZeit.value = sek;
+    teilchen.uTempo.value = ist.tempo;
+    teilchen.uZeigerKraft.value = ist.kraft;
+    teilchen.uDeckkraft.value = (istHeld ? 1 : 0.7) * (kamera.aspect < 0.8 ? 1 - ist.zeichen * 0.4 : 1);
+    kino.uniforms.uZeit.value = sek;
+    kino.uniforms.uTempo.value = Math.abs(ist.tempo);
 
     kamera.position.x = ist.zx * 0.35;
     kamera.position.y = -ist.zy * 0.25;
@@ -308,6 +395,7 @@
       kamera.clearViewOffset();
     }
     canvas.style.setProperty("--dimm", ist.dimm.toFixed(3));
+    zeigerInDerWelt(teilchen.uZeiger.value);
 
     if (mitBloom) composer.render();
     else renderer.render(szene, kamera);
@@ -341,6 +429,8 @@
       groesseAnpassen(true);
     } else if (mitBloom) {
       mitBloom = false;
+    } else if (punkte.geometry.drawRange.count > 8192) {
+      punkte.geometry.setDrawRange(0, Math.floor(Math.min(punkte.geometry.drawRange.count, anzahl) / 2));
     }
     warten = 1;
   }

@@ -3,7 +3,8 @@
 Statische Portfolio-Website. HTML, CSS und JavaScript, kein Framework, kein Build-Schritt.
 Bibliotheken sind Three.js für die 3D-Szene und Lenis für weiches Scrollen, beide selbst
 gehostet. Im Hintergrund liegt ein in Blender modelliertes Chromband
-(`assets/modelle/band.glb`), das beim Scrollen seine Form ändert.
+(`assets/modelle/band.glb`). Beim Scrollen zerfällt es in bis zu 65.536 Partikel, die als Galaxie
+weiterströmen und sich am Ende zum Hex-Logo sammeln (`assets/js/partikel.js`, Details in `DESIGN.md`).
 
 ## Auf dem Telefon
 
@@ -30,6 +31,18 @@ Website selbst.
 
 Eintrag in `daten/projekte.js` ergänzen und Bilder unter `bilder/<slug>/` ablegen. Startseite
 und Übersicht entstehen aus diesem Datensatz, die Projektseite liegt unter `work/<slug>/`.
+
+## Standbild des Bands
+
+Ohne WebGL und während die Szene lädt, steht ein Standbild an der Stelle des Bands. Blender
+rendert es mit denselben Leuchtflächen wie `assets/js/hintergrund.js`:
+
+```bash
+python scripts/standbild-rendern.py
+```
+
+Braucht Blender als Python-Modul (`pip install bpy`, Python 3.11). Warum die Seite so aussieht,
+wie sie aussieht, steht in `DESIGN.md`.
 
 ## Prüfen
 

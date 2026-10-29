@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#08090b">
   <title>Joermy — Creative Developer</title>
   <meta name="description" content="Websites, Oberflächen und digitale Werkzeuge — gebaut mit Blick auf Technik und Gestaltung.">
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
@@ -25,27 +25,16 @@
 
   <div class="vorhang" role="presentation">
     <div class="vorhang__inhalt">
-      <svg class="vorhang__kristall" viewBox="0 0 200 200" aria-hidden="true">
-        <defs>
-          <linearGradient id="vorhang-spektrum" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#ff7a3d"/>
-            <stop offset="0.35" stop-color="#ff3d7f"/>
-            <stop offset="0.68" stop-color="#9b5cff"/>
-            <stop offset="1" stop-color="#38b6ff"/>
-          </linearGradient>
-        </defs>
+      <svg class="vorhang__logo" viewBox="0 0 200 200" aria-hidden="true">
         <g class="vorhang__gitter">
-          <ellipse cx="100" cy="100" rx="84" ry="84" pathLength="100"/>
-          <ellipse cx="100" cy="100" rx="84" ry="16" pathLength="100" transform="rotate(0 100 100)"/>
-          <ellipse cx="100" cy="100" rx="84" ry="16" pathLength="100" transform="rotate(36 100 100)"/>
-          <ellipse cx="100" cy="100" rx="84" ry="16" pathLength="100" transform="rotate(72 100 100)"/>
-          <ellipse cx="100" cy="100" rx="84" ry="16" pathLength="100" transform="rotate(108 100 100)"/>
-          <ellipse cx="100" cy="100" rx="84" ry="16" pathLength="100" transform="rotate(144 100 100)"/>
-          <ellipse cx="100" cy="100" rx="84" ry="44" pathLength="100" transform="rotate(18 100 100)"/>
-          <ellipse cx="100" cy="100" rx="84" ry="44" pathLength="100" transform="rotate(90 100 100)"/>
-          <ellipse cx="100" cy="100" rx="84" ry="44" pathLength="100" transform="rotate(162 100 100)"/>
-          <ellipse cx="100" cy="100" rx="58" ry="58" pathLength="100"/>
+          <line x1="100" y1="16" x2="172.75" y2="58" pathLength="100"/>
+          <line x1="172.75" y1="58" x2="172.75" y2="142" pathLength="100"/>
+          <line x1="172.75" y1="142" x2="100" y2="184" pathLength="100"/>
+          <line x1="100" y1="184" x2="27.25" y2="142" pathLength="100"/>
+          <line x1="27.25" y1="142" x2="27.25" y2="58" pathLength="100"/>
+          <line x1="27.25" y1="58" x2="100" y2="16" pathLength="100"/>
         </g>
+        <path class="vorhang__kern" d="M100 60l34.64 20v40L100 140l-34.64-20V80z"/>
       </svg>
       <p class="vorhang__marke" aria-hidden="true">
         <span class="vorhang__marke-grund">Joermy</span>
@@ -137,14 +126,14 @@
 
       <div class="bento">
         <article class="kachel kachel--breit einblenden">
-          <span class="kachel__leuchten" style="background:#9b5cff" aria-hidden="true"></span>
+          <span class="kachel__leuchten" style="background:#06d6a0" aria-hidden="true"></span>
           <p class="kachel__zahl" aria-hidden="true">0</p>
           <h3>Frameworks. Kein Baukasten, kein Build-Schritt.</h3>
           <p>Jede Seite hier ist reines HTML, CSS und JavaScript — selbst umgesetzt, ohne Baukasten. Schriften, Bilder und Three.js liegen selbst gehostet im Repository — beim Laden geht keine Anfrage an fremde Server.</p>
         </article>
 
         <article class="kachel einblenden">
-          <span class="kachel__leuchten" style="background:#38b6ff" aria-hidden="true"></span>
+          <span class="kachel__leuchten" style="background:#06d6a0" aria-hidden="true"></span>
           <span class="kachel__symbol" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>
           </span>
@@ -153,7 +142,7 @@
         </article>
 
         <article class="kachel einblenden">
-          <span class="kachel__leuchten" style="background:#ff3d7f" aria-hidden="true"></span>
+          <span class="kachel__leuchten" style="background:#06d6a0" aria-hidden="true"></span>
           <span class="kachel__symbol" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 22V12M21 7l-9 5-9-5"/></svg>
           </span>
@@ -162,7 +151,7 @@
         </article>
 
         <article class="kachel einblenden">
-          <span class="kachel__leuchten" style="background:#ff7a3d" aria-hidden="true"></span>
+          <span class="kachel__leuchten" style="background:#06d6a0" aria-hidden="true"></span>
           <span class="kachel__symbol" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3-6 6-6 9 0s6 6 9 0"/></svg>
           </span>
@@ -171,7 +160,7 @@
         </article>
 
         <article class="kachel einblenden">
-          <span class="kachel__leuchten" style="background:#9b5cff" aria-hidden="true"></span>
+          <span class="kachel__leuchten" style="background:#06d6a0" aria-hidden="true"></span>
           <span class="kachel__pegel" aria-hidden="true">
             <i style="--h:30"></i><i style="--h:62"></i><i style="--h:44"></i><i style="--h:90"></i><i style="--h:58"></i><i style="--h:100"></i><i style="--h:70"></i><i style="--h:40"></i><i style="--h:82"></i><i style="--h:50"></i><i style="--h:26"></i>
           </span>
